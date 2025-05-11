@@ -1,0 +1,54 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+{
+  "name": "blogblogblog-rules",
+  "description": "Y2K wiki blog style rules for BlogBlogBlog by Erin Mikail Staples",
+  "rules": [
+    {
+      "pattern": "*.hbs",
+      "language": "Handlebars",
+      "style": {
+        "quotes": "double",
+        "indent_size": 2,
+        "max_line_length": 100,
+        "self_close_tags": true
+      },
+      "lint": {
+        "require_alt_text_on_images": true,
+        "no_unclosed_tags": true
+      }
+    },
+    {
+      "pattern": "*.css",
+      "language": "CSS",
+      "style": {
+        "quotes": "double",
+        "indent_size": 2,
+        "color_format": "hex",
+        "prefer_bright_colors": true,
+        "max_line_length": 100
+      },
+      "lint": {
+        "no_unused_classes": true,
+        "prefer_named_colors": false
+      }
+    },
+    {
+      "pattern": "*.js",
+      "language": "JavaScript",
+      "style": {
+        "semi": true,
+        "quotes": "single",
+        "indent_size": 2,
+        "max_line_length": 80
+      },
+      "lint": {
+        "prefer_const": true,
+        "no_console_logs": false
+      }
+    }
+  ]
+}

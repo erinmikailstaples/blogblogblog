@@ -1,3 +1,16 @@
+/* Y2K Bright Color Palette and Style Updates */
+:root {
+  --y2k-pink: #ff00ff;
+  --y2k-cyan: #00ffff;
+  --y2k-yellow: #ffff00;
+  --y2k-blue: #00aaff;
+  --y2k-purple: #a020f0;
+  --y2k-bg: #fff8fc;
+  --y2k-accent: #ffcc00;
+  --y2k-black: #000000;
+  --y2k-white: #ffffff;
+}
+
 /* Basic reset and box-sizing */
 * {
     margin: 0;
@@ -7,8 +20,8 @@
 
 body {
     font-family: system-ui, sans-serif;
-    background: #f9f9f9;
-    color: #222;
+    background: var(--y2k-bg);
+    color: var(--y2k-black);
     line-height: 1.6;
 }
 
@@ -20,12 +33,16 @@ body {
 /* Sidebar styles */
 .sidebar {
     width: 260px;
-    background: #fff;
-    border-right: 1px solid #eee;
+    background: var(--y2k-yellow);
+    border-right: 2px solid var(--y2k-pink);
     padding: 2rem 1rem;
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
 }
 .author-image {
     width: 96px;
@@ -60,28 +77,32 @@ body {
     gap: 2rem;
 }
 .post-card {
-    background: #fff;
+    background: var(--y2k-white);
+    border: 2px solid var(--y2k-cyan);
     border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+    box-shadow: 0 2px 8px #ff00ff33;
     padding: 1.5rem;
-    transition: box-shadow 0.2s;
+    transition: box-shadow 0.2s, border 0.2s;
 }
 .post-card:hover {
-    box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+    box-shadow: 0 4px 16px #00ffff55;
+    border: 2px solid var(--y2k-pink);
 }
 .post-title {
     font-size: 1.5rem;
     margin-bottom: 0.5rem;
+    color: var(--y2k-purple);
 }
 .post-excerpt {
-    color: #555;
+    color: var(--y2k-black);
 }
 
 /* Post full styles */
 .post-full {
-    background: #fff;
+    background: var(--y2k-white);
     border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+    box-shadow: 0 2px 8px #00ffff33;
+    border: 2px solid var(--y2k-blue);
     padding: 2rem;
 }
 .post-header {
@@ -93,6 +114,7 @@ body {
     display: block;
     margin: 1rem 0;
     border-radius: 6px;
+    border: 2px solid var(--y2k-pink);
 }
 
 /* Responsive design */
@@ -103,10 +125,12 @@ body {
     .sidebar {
         width: 100%;
         border-right: none;
-        border-bottom: 1px solid #eee;
+        border-bottom: 2px solid var(--y2k-pink);
         flex-direction: row;
         justify-content: flex-start;
         padding: 1rem;
+        height: auto;
+        position: static;
     }
     .content {
         padding: 1rem;
@@ -115,7 +139,6 @@ body {
 
 /* Koenig Editor: Wide width content support */
 .kg-width-wide {
-    /* Makes the element wider than the normal content, but not full width */
     width: 100vw;
     max-width: 1200px;
     margin-left: 50%;
@@ -418,4 +441,160 @@ body {
     .kg-signup-card {
         padding: 1rem;
     }
+}
+
+/* Meme Banner and Glitch Effect */
+.meme-banner {
+  margin: 1.5rem 0;
+}
+.glitch-wrapper {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 300px;
+  background: var(--y2k-black);
+  border-radius: 8px;
+  border: 2px solid var(--y2k-pink);
+}
+.glitch-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  cursor: pointer;
+  outline: none;
+}
+.glitch-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    0deg,
+    #ffffff0d,
+    #ffffff0d 1px,
+    transparent 1px,
+    transparent 2px
+  );
+  pointer-events: none;
+  mix-blend-mode: difference;
+  animation: glitch-flicker 2s infinite;
+}
+@keyframes glitch-flicker {
+  0% { opacity: 0.2; }
+  50% { opacity: 0.4; }
+  100% { opacity: 0.2; }
+}
+.meme-banner-note {
+  text-align: center;
+  font-size: 0.95rem;
+  color: #888888;
+  margin-top: 0.5rem;
+}
+
+/* Page Header and Footer Styles */
+.site-header, .site-footer {
+  background: var(--y2k-cyan);
+  color: var(--y2k-black);
+  border-bottom: 4px solid var(--y2k-pink);
+  border-top: 4px solid var(--y2k-pink);
+  padding: 1rem 0;
+  text-align: center;
+}
+.site-logo pre {
+  color: var(--y2k-purple);
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin: 0 0 0.5rem 0;
+}
+.site-nav a {
+  color: var(--y2k-blue);
+  background: var(--y2k-yellow);
+  border-radius: 4px;
+  padding: 0.3rem 0.8rem;
+  margin: 0 0.2rem;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.2s, color 0.2s;
+}
+.site-nav a:hover {
+  background: var(--y2k-pink);
+  color: var(--y2k-white);
+}
+
+.page-header .page-title {
+  color: var(--y2k-pink);
+}
+
+.related-posts h3,
+.ascii-divider pre,
+.random-fact strong {
+  color: var(--y2k-pink);
+}
+.related-posts a {
+  color: var(--y2k-blue);
+}
+.related-posts a:hover {
+  color: var(--y2k-pink);
+}
+
+.ascii-divider pre {
+  font-size: 1.2rem;
+  margin: 0.5rem 0;
+}
+
+.stub-warning {
+  background: var(--y2k-yellow);
+  color: var(--y2k-black);
+  border: 2px dashed var(--y2k-pink);
+  padding: 0.7rem 1rem;
+  border-radius: 6px;
+  margin: 1rem 0;
+  font-weight: bold;
+}
+.under-construction-banner {
+  background: var(--y2k-pink);
+  color: var(--y2k-white);
+  padding: 0.7rem 1rem;
+  border-radius: 6px;
+  margin: 1rem 0;
+  font-weight: bold;
+  text-align: center;
+}
+
+.site-footer {
+  background: var(--y2k-cyan);
+  color: var(--y2k-black);
+  border-top: 4px solid var(--y2k-pink);
+  border-bottom: 4px solid var(--y2k-pink);
+  padding: 1rem 0;
+  text-align: center;
+}
+.site-footer .webring a {
+  color: var(--y2k-pink);
+  font-weight: bold;
+  margin: 0 0.5rem;
+  text-decoration: underline;
+}
+.site-footer .footer-cta .guestbook-cta {
+  color: var(--y2k-white);
+  background: var(--y2k-pink);
+  border-radius: 4px;
+  padding: 0.3rem 0.8rem;
+  text-decoration: none;
+  font-weight: bold;
+  margin: 0.5rem 0;
+  display: inline-block;
+}
+.site-footer .footer-cta .guestbook-cta:hover {
+  background: var(--y2k-blue);
+  color: var(--y2k-yellow);
+}
+.site-footer .footer-meta {
+  margin-top: 0.5rem;
+  color: var(--y2k-black);
+}
+.site-footer .hit-counter {
+  color: var(--y2k-pink);
+  margin-left: 1rem;
 }
