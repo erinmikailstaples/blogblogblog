@@ -716,3 +716,112 @@ body {
   color: var(--y2k-pink);
   margin-left: 1rem;
 }
+
+/* External Links with Site Icons */
+.external-link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  transition: color 0.2s ease, transform 0.1s ease;
+}
+
+.external-link:hover,
+.external-link:focus-visible {
+  transform: translateY(-1px);
+}
+
+.external-link-icon {
+  display: inline-block;
+  margin-inline-start: 0.2em;
+  font-size: 0.9em;
+}
+
+/* Site-specific styling through data attributes */
+.external-link:hover,
+.external-link:focus-visible {
+  color: var(--external-site-color, var(--y2k-blue));
+}
+
+/* Apply each site's brand color through CSS custom properties */
+.external-link {
+  --external-site-color: var(--y2k-blue);
+}
+
+/* Site-specific styles using attribute selectors */
+.external-link[data-site="github.com"] {
+  --external-site-color: hsl(210, 12%, 16%);
+}
+
+.external-link[data-site="twitter.com"],
+.external-link[data-site="x.com"] {
+  --external-site-color: hsl(203, 89%, 53%);
+}
+
+.external-link[data-site="linkedin.com"] {
+  --external-site-color: hsl(210, 90%, 40%);
+}
+
+.external-link[data-site="instagram.com"] {
+  --external-site-color: hsl(340, 75%, 54%);
+}
+
+.external-link[data-site="youtube.com"] {
+  --external-site-color: hsl(0, 100%, 50%);
+}
+
+.external-link[data-site="twitch.tv"] {
+  --external-site-color: hsl(261, 43%, 45%);
+}
+
+.external-link[data-site="discord.com"] {
+  --external-site-color: hsl(235, 86%, 65%);
+}
+
+.external-link[data-site="reddit.com"] {
+  --external-site-color: hsl(16, 100%, 50%);
+}
+
+.external-link[data-site="bsky.app"] {
+  --external-site-color: hsl(203, 89%, 53%);
+}
+
+.external-link[data-site="spotify.com"] {
+  --external-site-color: hsl(141, 73%, 42%);
+}
+
+.external-link[data-site="lu.ma"] {
+  --external-site-color: hsl(280, 87%, 65%);
+}
+
+.external-link[data-site="mailto:"] {
+  --external-site-color: hsl(345, 83%, 56%);
+}
+
+.external-link[data-site=".rss"] {
+  --external-site-color: hsl(25, 86%, 64%);
+}
+
+.external-link[data-site="mastodon"] {
+  --external-site-color: hsl(282, 56%, 55%);
+}
+
+.external-link[data-site="substack.com"] {
+  --external-site-color: hsl(40, 100%, 50%);
+}
+
+.external-link[data-site="medium.com"] {
+  --external-site-color: hsl(0, 0%, 0%);
+}
+
+/* Dark mode adjustments for better contrast */
+@media (prefers-color-scheme: dark) {
+  .external-link[data-site="github.com"] {
+    --external-site-color: hsl(210, 12%, 80%);
+  }
+  
+  .external-link[data-site="medium.com"] {
+    --external-site-color: hsl(0, 0%, 90%);
+  }
+}
