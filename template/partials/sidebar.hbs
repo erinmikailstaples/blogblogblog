@@ -1,0 +1,15 @@
+<aside class="sidebar">
+    {{#author}}
+        <!-- Author profile image -->
+        {{#if profile_image}}
+            <img class="author-image" src="{{profile_image}}" alt="{{name}}">
+        {{/if}}
+        <!-- Author name -->
+        <h2 class="author-name">{{name}}</h2>
+        <!-- Author bio -->
+        {{#if bio}}
+            <p class="author-bio">{{bio}}</p>
+        {{/if}}
+    {{/author}}
+    <!-- You can add more sidebar content here, like links or navigation -->
+</aside> 

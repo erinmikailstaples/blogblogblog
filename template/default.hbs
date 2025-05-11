@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{meta_title}}</title>
+    {{ghost_head}} <!-- Required: Injects Ghost's <head> content -->
+    <link rel="stylesheet" href="{{asset "css/screen.css"}}">
+</head>
+<body class="{{body_class}}">
+    <!-- Main wrapper for sidebar and content -->
+    <div class="wrapper">
+        <!-- Sidebar partial: displays author info -->
+        {{> "sidebar"}}
+        <!-- Main content area -->
+        <main class="content">
+            {{{body}}} <!-- This is where page-specific content is rendered -->
+        </main>
+    </div>
+    {{ghost_foot}} <!-- Required: Injects Ghost's <footer> content -->
+</body>
+</html>
