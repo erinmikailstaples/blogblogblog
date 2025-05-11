@@ -1,18 +1,24 @@
-<aside class="sidebar">
-    <section class="sidebar-categories">
-        <h3>Categories</h3>
-        <ul>
-            {{#get "tags" limit="all"}}
-                {{#foreach tags}}
-                    <li><a href="{{url}}">{{name}}</a></li>
-                {{/foreach}}
-            {{/get}}
-        </ul>
-    </section>
-    <section class="sidebar-random">
-        <h3>Random Post</h3>
-        <a href="{{@site.url}}/random">Go!</a>
-    </section>
-    {{> "recently-edited"}}
-    {{> "random-fact"}}
+<aside class="sidebar" id="sidebar" aria-expanded="true">
+    <button class="sidebar-toggle" id="sidebar-toggle" aria-label="Toggle sidebar" aria-controls="sidebar" aria-expanded="true">
+        <span class="sidebar-toggle-icon" aria-hidden="true">&#9776;</span>
+        <span class="sidebar-toggle-text">Menu</span>
+    </button>
+    <div class="sidebar-content">
+        <section class="sidebar-categories">
+            <h3>Categories</h3>
+            <ul>
+                {{#get "tags" limit="all"}}
+                    {{#foreach tags}}
+                        <li><a href="{{url absolute="true"}}">{{name}}</a></li>
+                    {{/foreach}}
+                {{/get}}
+            </ul>
+        </section>
+        <section class="sidebar-random">
+            <h3>Random Post</h3>
+            <a href="{{@site.url}}/random">Go!</a>
+        </section>
+        {{> "recently-edited"}}
+        {{> "random-fact"}}
+    </div>
 </aside> 

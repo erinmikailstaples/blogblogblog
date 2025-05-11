@@ -4,7 +4,7 @@
     {{!-- Conditionally show the title and feature image if the toggle is ON --}}
     {{#match @page.show_title_and_feature_image}}
         <header class="page-header">
-            <h1 class="page-title">{{title}}</h1>
+            <h1 class="page-title y2k-heading">{{title}}</h1>
             {{#if feature_image}}
                 <img class="page-feature-image" src="{{feature_image}}" alt="{{title}}">
             {{/if}}
