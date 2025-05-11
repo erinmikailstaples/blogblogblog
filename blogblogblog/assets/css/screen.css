@@ -1,0 +1,421 @@
+/* Basic reset and box-sizing */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: system-ui, sans-serif;
+    background: #f9f9f9;
+    color: #222;
+    line-height: 1.6;
+}
+
+.wrapper {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Sidebar styles */
+.sidebar {
+    width: 260px;
+    background: #fff;
+    border-right: 1px solid #eee;
+    padding: 2rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.author-image {
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+}
+.author-name {
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+.author-bio {
+    font-size: 1rem;
+    color: #666;
+    text-align: center;
+}
+
+/* Main content area */
+.content {
+    flex: 1;
+    padding: 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Post list styles */
+.post-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+.post-card {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+    padding: 1.5rem;
+    transition: box-shadow 0.2s;
+}
+.post-card:hover {
+    box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+}
+.post-title {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+.post-excerpt {
+    color: #555;
+}
+
+/* Post full styles */
+.post-full {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+    padding: 2rem;
+}
+.post-header {
+    margin-bottom: 2rem;
+}
+.post-feature-image {
+    width: 100%;
+    max-width: 600px;
+    display: block;
+    margin: 1rem 0;
+    border-radius: 6px;
+}
+
+/* Responsive design */
+@media (max-width: 800px) {
+    .wrapper {
+        flex-direction: column;
+    }
+    .sidebar {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid #eee;
+        flex-direction: row;
+        justify-content: flex-start;
+        padding: 1rem;
+    }
+    .content {
+        padding: 1rem;
+    }
+}
+
+/* Koenig Editor: Wide width content support */
+.kg-width-wide {
+    /* Makes the element wider than the normal content, but not full width */
+    width: 100vw;
+    max-width: 1200px;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+/* Responsive: Prevent overflow on small screens */
+@media (max-width: 1200px) {
+    .kg-width-wide {
+        max-width: 100vw;
+    }
+}
+
+/* Koenig Editor: Full width content support */
+.kg-width-full {
+    width: 100vw;
+    max-width: 100vw;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+/* Koenig Gallery Card */
+.kg-gallery-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin: 2rem 0;
+}
+.kg-gallery-row {
+    display: flex;
+    gap: 1rem;
+}
+.kg-gallery-image {
+    width: 100%;
+    border-radius: 6px;
+    object-fit: cover;
+}
+
+/* Koenig Embed Card */
+.kg-embed-card {
+    margin: 2rem 0;
+    display: flex;
+    justify-content: center;
+}
+.kg-embed-card iframe,
+.kg-embed-card video {
+    max-width: 100%;
+    border-radius: 6px;
+}
+
+/* Koenig Bookmark Card */
+.kg-bookmark-card {
+    border: 1px solid #eee;
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    margin: 2rem 0;
+    background: #fafbfc;
+}
+.kg-bookmark-content {
+    padding: 1rem;
+}
+.kg-bookmark-title {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+.kg-bookmark-description {
+    color: #555;
+    margin-bottom: 0.5rem;
+}
+.kg-bookmark-metadata {
+    font-size: 0.9rem;
+    color: #888;
+}
+.kg-bookmark-thumbnail {
+    width: 100%;
+    max-height: 200px;
+    object-fit: cover;
+}
+
+/* Koenig Callout Card */
+.kg-callout-card {
+    border-left: 4px solid #007bff;
+    background: #f0f6ff;
+    padding: 1rem 1.5rem;
+    margin: 2rem 0;
+    border-radius: 6px;
+}
+.kg-callout-card .kg-callout-text {
+    margin: 0;
+}
+
+/* Koenig Header Card */
+.kg-header-card {
+    text-align: center;
+    margin: 2rem 0;
+}
+.kg-header-card h2 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+.kg-header-card h3 {
+    font-size: 1.3rem;
+    color: #666;
+}
+
+/* Koenig Toggle Card */
+.kg-toggle-card {
+    border: 1px solid #eee;
+    border-radius: 6px;
+    margin: 2rem 0;
+    background: #fff;
+}
+.kg-toggle-heading {
+    font-weight: bold;
+    padding: 1rem;
+    cursor: pointer;
+    background: #f7f7f7;
+    border-bottom: 1px solid #eee;
+}
+.kg-toggle-content {
+    padding: 1rem;
+}
+
+/* Koenig Button Card */
+.kg-button-card {
+    display: flex;
+    justify-content: center;
+    margin: 2rem 0;
+}
+.kg-btn {
+    background: #007bff;
+    color: #fff;
+    padding: 0.75rem 2rem;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.2s;
+}
+.kg-btn:hover {
+    background: #0056b3;
+}
+
+/* Koenig Card Generic Wrapper */
+.kg-card {
+    margin: 2rem 0;
+}
+
+/* Koenig Image Card */
+.kg-image-card img {
+    display: block;
+    max-width: 100%;
+    margin: 0 auto;
+    border-radius: 6px;
+}
+
+/* Koenig Code Card */
+.kg-code-card {
+    background: #222;
+    color: #f8f8f2;
+    font-family: 'Fira Mono', 'Consolas', monospace;
+    padding: 1rem;
+    border-radius: 6px;
+    overflow-x: auto;
+    margin: 2rem 0;
+    font-size: 0.95rem;
+}
+
+/* Koenig Audio Card */
+.kg-audio-card {
+    margin: 2rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.kg-audio-card audio {
+    width: 100%;
+    max-width: 400px;
+}
+
+/* Koenig Video Card */
+.kg-video-card {
+    margin: 2rem 0;
+    display: flex;
+    justify-content: center;
+}
+.kg-video-card video {
+    max-width: 100%;
+    border-radius: 6px;
+}
+
+/* Koenig File Card */
+.kg-file-card {
+    border: 1px solid #eee;
+    border-radius: 6px;
+    padding: 1rem;
+    margin: 2rem 0;
+    background: #fafbfc;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+.kg-file-card a {
+    color: #007bff;
+    text-decoration: underline;
+}
+
+/* Koenig Product Card */
+.kg-product-card {
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 2rem 0;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.kg-product-card-title {
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+.kg-product-card-description {
+    color: #555;
+    margin-bottom: 1rem;
+}
+.kg-product-card-price {
+    font-size: 1.1rem;
+    color: #007bff;
+    margin-bottom: 1rem;
+}
+.kg-product-card-button {
+    background: #007bff;
+    color: #fff;
+    padding: 0.5rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.2s;
+}
+.kg-product-card-button:hover {
+    background: #0056b3;
+}
+
+/* Koenig Signup Card */
+.kg-signup-card {
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 2rem;
+    margin: 2rem 0;
+    background: #f0f6ff;
+    text-align: center;
+}
+.kg-signup-card input[type="email"] {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 0.5rem;
+    font-size: 1rem;
+}
+.kg-signup-card button {
+    background: #007bff;
+    color: #fff;
+    padding: 0.5rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.kg-signup-card button:hover {
+    background: #0056b3;
+}
+
+/* Responsive tweaks for Koenig cards */
+@media (max-width: 600px) {
+    .kg-gallery-row {
+        flex-direction: column;
+    }
+    .kg-bookmark-card {
+        flex-direction: column;
+    }
+    .kg-file-card {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    .kg-product-card {
+        padding: 1rem;
+    }
+    .kg-signup-card {
+        padding: 1rem;
+    }
+}
