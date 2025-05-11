@@ -2,7 +2,11 @@
   "name": "blogblogblog",
   "description": "A simple, scalable, wiki-like Ghost theme with a sidebar for author info.",
   "version": "0.1.0",
-  "author": "Erin Mikail Staples",
-  "email": "erin@erinmikailstaples.com",
+  "author": {
+    "name": "Erin Mikail Staples",
+    "email": "erin@erinmikailstaples.com"
+  },
+  "keywords": ["ghost-theme"],
+  "card_assets": true,
   "license": "MIT"
 }

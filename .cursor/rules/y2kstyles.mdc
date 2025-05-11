@@ -1,11 +1,11 @@
 ---
 description: 
 globs: 
-alwaysApply: false
+alwaysApply: true
 ---
 {
   "name": "blogblogblog-rules",
-  "description": "Y2K wiki blog style rules for BlogBlogBlog by Erin Mikail Staples",
+  "description": "Modern Y2K-coded rules for BlogBlogBlog by Erin Mikail Staples",
   "rules": [
     {
       "pattern": "*.hbs",
@@ -18,6 +18,8 @@ alwaysApply: false
       },
       "lint": {
         "require_alt_text_on_images": true,
+        "require_semantic_headings": true,
+        "enforce_heading_hierarchy": true,
         "no_unclosed_tags": true
       }
     },
@@ -27,13 +29,16 @@ alwaysApply: false
       "style": {
         "quotes": "double",
         "indent_size": 2,
-        "color_format": "hex",
-        "prefer_bright_colors": true,
-        "max_line_length": 100
+        "max_line_length": 100,
+        "prefer_hsl_colors": true,
+        "prefer_modern_layout": ["flex", "grid"],
+        "use_logical_properties": true
       },
       "lint": {
         "no_unused_classes": true,
-        "prefer_named_colors": false
+        "require_clamp_for_responsive_sizing": true,
+        "prefer_responsive_units": ["rem", "em", "%"],
+        "no_important": true
       }
     },
     {
@@ -47,8 +52,17 @@ alwaysApply: false
       },
       "lint": {
         "prefer_const": true,
-        "no_console_logs": false
+        "prefer_arrow_functions": true,
+        "disallow_var": true,
+        "require_lazy_loading_images": true
       }
     }
   ]
 }
+
+@media (prefers-reduced-motion: reduce) {
+  .glitch-overlay {
+    animation: none;
+  }
+}
+
