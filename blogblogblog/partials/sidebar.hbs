@@ -1,15 +1,18 @@
 <aside class="sidebar">
-    {{#primary_author}}
-        <!-- Author profile image -->
-        {{#if profile_image}}
-            <img class="author-image" src="{{profile_image}}" alt="{{name}}">
-        {{/if}}
-        <!-- Author name -->
-        <h2 class="author-name">{{name}}</h2>
-        <!-- Author bio -->
-        {{#if bio}}
-            <p class="author-bio">{{bio}}</p>
-        {{/if}}
-    {{/primary_author}}
-    <!-- You can add more sidebar content here, like links or navigation -->
+    <section class="sidebar-categories">
+        <h3>Categories</h3>
+        <ul>
+            {{#get "tags" limit="all"}}
+                {{#foreach tags}}
+                    <li><a href="{{url}}">{{name}}</a></li>
+                {{/foreach}}
+            {{/get}}
+        </ul>
+    </section>
+    <section class="sidebar-random">
+        <h3>Random Post</h3>
+        <a href="{{@site.url}}/random">Go!</a>
+    </section>
+    {{> "recently-edited"}}
+    {{> "random-fact"}}
 </aside> 

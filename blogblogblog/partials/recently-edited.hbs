@@ -1,0 +1,10 @@
+<section class="recently-edited">
+    <h3>Recently Edited</h3>
+    <ul>
+        {{#get "posts" limit="5" order="updated_at desc"}}
+            {{#foreach posts}}
+                <li><a href="{{url}}">{{title}}</a> <span class="edit-date">({{date updated_at format="MMM D"}})</span></li>
+            {{/foreach}}
+        {{/get}}
+    </ul>
+</section> 
