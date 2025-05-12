@@ -10,7 +10,7 @@
             <ul>
                 {{#get "tags" limit="all"}}
                     {{#foreach tags}}
-                        <li><a href="{{url absolute="true"}}">{{name}}</a></li>
+                        <li><a href="/tag/{{slug}}">{{name}}</a></li>
                     {{/foreach}}
                 {{/get}}
             </ul>
