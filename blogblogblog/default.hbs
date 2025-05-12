@@ -8,10 +8,8 @@
     <link rel="stylesheet" href="{{asset "css/screen.css"}}">
 </head>
 <body class="{{body_class}}">
-    <!-- Main wrapper for sidebar and content -->
+    <!-- Main wrapper for content only (sidebar removed for XP Start menu) -->
     <div class="wrapper">
-        <!-- Sidebar partial: displays author info -->
-        {{> "sidebar"}}
         <!-- Main content area -->
         <main class="content">
             {{{body}}} <!-- This is where page-specific content is rendered -->
@@ -26,5 +24,6 @@
     <script src="{{asset "js/link-preview.js"}}"></script>
     <script src="{{asset "js/y2k-cursor.js"}}"></script>
     <script src="{{asset "js/visitor-counter.js"}}"></script>
+    <script src="{{asset "js/start-menu.js"}}"></script>
 </body>
 </html>
