@@ -1,6 +1,6 @@
 # blogblogblog
 
-A simple, scalable, wiki-like Ghost theme with a sidebar for author info.
+A fun throwback [ghost.org](https://ghost.org)template that revives that frutiger aero style we either loved, hated, or loved to hate in those early 2000s.  For those missing the times they'd spend far too much time on that family computer, probably locking their sims in a pool, crashing the computer using limewire, or customizing your myspace template to be **just right**, this one is for you.💖
 
 ## Features
 
@@ -12,7 +12,7 @@ A simple, scalable, wiki-like Ghost theme with a sidebar for author info.
 
 ## Theme Structure
 
-```
+```markdown
 template/
 ├── assets/
 │   └── css/
@@ -49,24 +49,29 @@ ghost install local
 ```
 
 Once installation is complete, your Ghost site will be available at:
-- **Frontend**: http://localhost:2368
-- **Admin**: http://localhost:2368/ghost
+
+- **Frontend**: [http://localhost:2368](http://localhost:2368)
+- **Admin**: [http://localhost:2368/ghost](http://localhost:2368/ghost)
 
 ### Installing the blogblogblog Theme
 
 1. **Download the theme**:
+
    ```bash
    git clone https://github.com/erinmikailstaples/blogblogblog.git
    ```
 
 2. **Copy theme to Ghost**:
+
    Copy the `template` folder to your Ghost installation's themes directory:
+
    ```bash
    cp -r blogblogblog/template /path/to/your/ghost/content/themes/blogblogblog
    ```
 
 3. **Activate the theme**:
-   - Go to Ghost Admin (http://localhost:2368/ghost)
+
+   - Go to Ghost Admin [http://localhost:2368/ghost](https://localhost:2368/ghost)
    - Navigate to **Settings** → **Design**
    - Click **Change theme**
    - Select **blogblogblog** from the list
@@ -78,13 +83,14 @@ Once installation is complete, your Ghost site will be available at:
 
 All theme files are located in `/content/themes/blogblogblog/` within your Ghost installation.
 
-#### Key Files to Customize:
+#### Key Files to Customize
 
 - **`default.hbs`**: Main layout template
 - **`partials/sidebar.hbs`**: Author sidebar content
 - **`assets/css/screen.css`**: Theme styles
 - **`index.hbs`**: Homepage layout
 - **`post.hbs`**: Individual post layout
+- **`tools.hbs`**: Layout Page for a "tools I use" page
 
 #### Live Reloading
 
@@ -136,6 +142,7 @@ Edit `partials/sidebar.hbs` to customize the author information display or add a
 ### Styling
 
 The theme uses a clean CSS structure. Modify `assets/css/screen.css` to customize:
+
 - Colors and typography
 - Layout and spacing
 - Responsive breakpoints
