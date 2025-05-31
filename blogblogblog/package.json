@@ -4,9 +4,16 @@
   "version": "0.1.0",
   "author": {
     "name": "Erin Mikail Staples",
+    "pronouns": "she/her/hers",
     "email": "erin@erinmikailstaples.com"
   },
-  "keywords": ["ghost-theme"],
-  "card_assets": true,
-  "license": "MIT"
+  "keywords": ["ghost-theme", "blog", "minimal", "sidebar", "wiki"],
+  "license": "MIT",
+  "engines": {
+    "ghost": ">=5.0.0"
+  },
+  "config": {
+    "card_assets": true
+    
+  }
 }
