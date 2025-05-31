@@ -1053,37 +1053,9 @@ body {
   font-style: italic;
 }
 
-/* Sidebar Toggle FAB */
+/* Sidebar Toggle FAB - Hidden, using Start button instead */
 .sidebar-toggle-fab {
-  position: fixed;
-  top: 0.5rem;
-  right: 1rem; /* Move to right side to avoid header interference */
-  z-index: 1000;
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  border: 2px solid var(--y2k-cyan);
-  background: var(--y2k-pink);
-  color: var(--y2k-white);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 12px hsla(300, 100%, 50%, 0.3);
-  font-size: 1.2rem;
-}
-
-.sidebar-toggle-fab:hover,
-.sidebar-toggle-fab:focus-visible {
-  background: var(--y2k-cyan);
-  border-color: var(--y2k-pink);
-  transform: scale(1.1);
-  box-shadow: 0 6px 20px hsla(300, 100%, 50%, 0.4);
-}
-
-.sidebar-toggle-fab:active {
-  transform: scale(0.95);
+  display: none;
 }
 
 /* Hide the original sidebar toggle button */

@@ -128,6 +128,11 @@ document.addEventListener('DOMContentLoaded', function() {
       return;
     }
     
+    // Skip links that already have emoji or are in the header menu
+    if (link.closest('.xp-menu-icons') || link.querySelector('.xp-menu-icon')) {
+      return;
+    }
+    
     // Check if the link is external
     const isExternal = isExternalLink(href);
     

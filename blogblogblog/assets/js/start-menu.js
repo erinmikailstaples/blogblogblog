@@ -1,44 +1,67 @@
 document.addEventListener('DOMContentLoaded', function () {
   const startBtn = document.querySelector('[data-toggle-startmenu]');
-  const startMenu = document.getElementById('xp-start-menu');
-  let lastFocused = null;
-
-  function openMenu() {
-    if (!startMenu) return;
-    startMenu.hidden = false;
-    startMenu.focus();
-    lastFocused = document.activeElement;
-    document.body.classList.add('start-menu-open');
+  const sidebar = document.querySelector('.sidebar');
+  
+  // Get sidebar state from localStorage (default: hidden)
+  let sidebarEnabled = localStorage.getItem('sidebar-enabled') === 'true';
+  
+  // Apply initial state
+  if (sidebarEnabled) {
+    sidebar.classList.add('sidebar-visible');
+    sidebar.setAttribute('aria-expanded', 'true');
+    startBtn.setAttribute('aria-pressed', 'true');
+    startBtn.setAttribute('aria-label', 'Hide sidebar');
+  } else {
+    sidebar.classList.remove('sidebar-visible');
+    sidebar.setAttribute('aria-expanded', 'false');
+    startBtn.setAttribute('aria-pressed', 'false');
+    startBtn.setAttribute('aria-label', 'Show sidebar');
+  }
+  
+  function toggleSidebar() {
+    sidebarEnabled = !sidebarEnabled;
+    
+    if (sidebarEnabled) {
+      sidebar.classList.add('sidebar-visible');
+      sidebar.setAttribute('aria-expanded', 'true');
+      startBtn.setAttribute('aria-pressed', 'true');
+      startBtn.setAttribute('aria-label', 'Hide sidebar');
+    } else {
+      sidebar.classList.remove('sidebar-visible');
+      sidebar.setAttribute('aria-expanded', 'false');
+      startBtn.setAttribute('aria-pressed', 'false');
+      startBtn.setAttribute('aria-label', 'Show sidebar');
+    }
+    
+    // Save state to localStorage
+    localStorage.setItem('sidebar-enabled', sidebarEnabled.toString());
   }
 
-  function closeMenu() {
-    if (!startMenu) return;
-    startMenu.hidden = true;
-    document.body.classList.remove('start-menu-open');
-    if (lastFocused) lastFocused.focus();
-  }
-
-  if (startBtn && startMenu) {
+  if (startBtn && sidebar) {
     startBtn.addEventListener('click', function (e) {
       e.stopPropagation();
-      if (startMenu.hidden) {
-        openMenu();
-      } else {
-        closeMenu();
-      }
+      toggleSidebar();
     });
-
-    // Close menu on click outside
+    
+    // Close sidebar when clicking outside
     document.addEventListener('click', function (e) {
-      if (!startMenu.hidden && !startMenu.contains(e.target) && e.target !== startBtn) {
-        closeMenu();
+      if (sidebarEnabled && !sidebar.contains(e.target) && e.target !== startBtn) {
+        toggleSidebar();
       }
     });
 
-    // Keyboard accessibility
-    startMenu.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape') {
-        closeMenu();
+    // Keyboard support
+    startBtn.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        toggleSidebar();
+      }
+    });
+    
+    // ESC to close sidebar
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && sidebarEnabled) {
+        toggleSidebar();
       }
     });
   }
