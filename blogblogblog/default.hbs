@@ -8,14 +8,23 @@
     <link rel="stylesheet" href="{{asset "css/screen.css"}}">
 </head>
 <body class="{{body_class}}">
-    <!-- Main wrapper for content only (sidebar removed for XP Start menu) -->
-    <div class="wrapper">
+    <!-- Sidebar toggle button (floating) -->
+    <button class="sidebar-toggle-fab" id="sidebar-toggle-fab" aria-label="Toggle sidebar" title="Toggle sidebar">
+        <span class="sidebar-toggle-icon">☰</span>
+    </button>
+
+    <!-- Main wrapper for sidebar and content -->
+    <div class="wrapper" id="main-wrapper">
+        <!-- Sidebar (hidden by default) -->
+        {{> "sidebar"}}
+        
         <!-- Main content area -->
         <main class="content">
             {{{body}}} <!-- This is where page-specific content is rendered -->
         </main>
     </div>
     {{ghost_foot}} <!-- Required: Injects Ghost's <footer> content -->
+    <script src="{{asset "js/sidebar-fab-toggle.js"}}"></script>
     <script src="{{asset "js/sidebar-toggle.js"}}"></script>
     <script src="{{asset "js/meme-rotator.js"}}"></script>
     <script src="{{asset "js/external-links.js"}}"></script>
