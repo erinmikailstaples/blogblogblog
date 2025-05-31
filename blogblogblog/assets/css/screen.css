@@ -197,7 +197,7 @@ body {
 /* Main content area */
 .content {
   padding: var(--space-lg);
-  max-width: min(90ch, 100% - var(--space-md) * 2);
+  max-width: min(1400px, 98vw);
   margin-inline: auto;
   display: grid;
   gap: var(--space-lg);
@@ -223,8 +223,8 @@ body {
   flex-direction: column;
   height: 100%;
   font-family: var(--xp-font);
-  padding: clamp(1.2rem, 3vw, 2.5rem);
-  margin-block: clamp(1.2rem, 3vw, 2.5rem);
+  padding: clamp(0.8rem, 2vw, 1.5rem);
+  margin-block: clamp(0.8rem, 2vw, 1.5rem);
 }
 
 .post-card:hover, 

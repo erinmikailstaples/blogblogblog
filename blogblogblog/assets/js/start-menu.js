@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', function () {
   let lastFocused = null;
 
   function openMenu() {
+    if (!startMenu) return;
     startMenu.hidden = false;
     startMenu.focus();
     lastFocused = document.activeElement;
@@ -11,31 +12,34 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   function closeMenu() {
+    if (!startMenu) return;
     startMenu.hidden = true;
     document.body.classList.remove('start-menu-open');
     if (lastFocused) lastFocused.focus();
   }
 
-  startBtn.addEventListener('click', function (e) {
-    e.stopPropagation();
-    if (startMenu.hidden) {
-      openMenu();
-    } else {
-      closeMenu();
-    }
-  });
+  if (startBtn && startMenu) {
+    startBtn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      if (startMenu.hidden) {
+        openMenu();
+      } else {
+        closeMenu();
+      }
+    });
 
-  // Close menu on click outside
-  document.addEventListener('click', function (e) {
-    if (!startMenu.hidden && !startMenu.contains(e.target) && e.target !== startBtn) {
-      closeMenu();
-    }
-  });
+    // Close menu on click outside
+    document.addEventListener('click', function (e) {
+      if (!startMenu.hidden && !startMenu.contains(e.target) && e.target !== startBtn) {
+        closeMenu();
+      }
+    });
 
-  // Keyboard accessibility
-  startMenu.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape') {
-      closeMenu();
-    }
-  });
+    // Keyboard accessibility
+    startMenu.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') {
+        closeMenu();
+      }
+    });
+  }
 }); 
