@@ -61,8 +61,6 @@ body {
 }
 
 .wrapper {
-  display: grid;
-  grid-template-columns: 1fr; /* Default: full width, no sidebar */
   min-block-size: 100vh;
   background: var(--xp-glass-bg);
   border-radius: var(--xp-radius-lg);
@@ -71,13 +69,9 @@ body {
   padding: 0;
   max-width: 100vw;
   overflow-x: hidden;
-  transition: grid-template-columns 0.3s ease;
 }
 
-/* When sidebar is enabled */
-.wrapper.sidebar-enabled {
-  grid-template-columns: minmax(250px, 320px) 1fr;
-}
+/* Remove this for now - we'll implement sidebar differently */
 
 /* Accessibility */
 :focus-visible {
@@ -98,36 +92,26 @@ body {
   }
 }
 
-/* Sidebar styles */
+/* Sidebar styles - Simple overlay approach */
 .sidebar {
-  transition: max-width 0.3s cubic-bezier(0.4,0,0.2,1),
-              min-width 0.3s cubic-bezier(0.4,0,0.2,1),
-              width 0.3s cubic-bezier(0.4,0,0.2,1),
-              box-shadow 0.3s cubic-bezier(0.4,0,0.2,1),
-              background 0.3s cubic-bezier(0.4,0,0.2,1),
-              opacity 0.3s cubic-bezier(0.4,0,0.2,1),
-              transform 0.3s cubic-bezier(0.4,0,0.2,1);
-  max-width: 320px;
-  min-width: 220px;
-  width: 100%;
+  position: fixed;
+  top: 0;
+  left: -320px; /* Hidden by default */
+  width: 320px;
+  height: 100vh;
   background: var(--xp-glass-bg-strong);
-  border-radius: var(--xp-radius);
+  border-radius: 0 var(--xp-radius) var(--xp-radius) 0;
   box-shadow: var(--xp-glass-shadow);
   border: 2px solid var(--y2k-pale-azure);
-  z-index: 100;
-  position: sticky;
-  left: 0;
-  /* Hidden by default */
-  opacity: 0;
-  transform: translateX(-100%);
-  pointer-events: none;
+  border-left: none;
+  z-index: 1000;
+  transition: left 0.3s cubic-bezier(0.4,0,0.2,1);
+  overflow-y: auto;
 }
 
 /* Show sidebar when enabled */
-.wrapper.sidebar-enabled .sidebar {
-  opacity: 1;
-  transform: translateX(0);
-  pointer-events: auto;
+.sidebar.sidebar-visible {
+  left: 0;
 }
 
 .sidebar[aria-expanded="false"] {
@@ -222,13 +206,9 @@ body {
   margin-inline: auto;
   display: grid;
   gap: var(--space-lg);
-  transition: max-width 0.3s ease, padding 0.3s ease;
 }
 
-/* Adjust content when sidebar is enabled */
-.wrapper.sidebar-enabled .content {
-  max-width: min(70ch, 100% - var(--space-md) * 2);
-}
+/* Content stays full width since sidebar is overlay */
 
 /* Post list styles - Full width cards */
 .post-list {
@@ -320,32 +300,13 @@ body {
 
 /* Responsive design */
 @media (max-width: 800px) {
-  .wrapper {
-    grid-template-columns: 1fr !important; /* Force single column on mobile */
-  }
-  
-  .wrapper.sidebar-enabled .sidebar {
-    position: fixed;
-    top: 0;
-    left: 0;
+  .sidebar {
     width: 280px;
-    height: 100vh;
-    z-index: 999;
     max-width: 80vw;
-    transform: translateX(0);
-    border-radius: 0;
-    border-left: none;
-    border-top: none;
-    border-bottom: none;
-  }
-  
-  .sidebar-toggle-fab {
-    z-index: 1001; /* Above mobile sidebar */
   }
   
   .content {
     padding: var(--space-md);
-    max-width: 100%;
   }
   
   .post-list {
@@ -1095,8 +1056,8 @@ body {
 /* Sidebar Toggle FAB */
 .sidebar-toggle-fab {
   position: fixed;
-  top: 1rem;
-  left: 1rem;
+  top: 0.5rem;
+  right: 1rem; /* Move to right side to avoid header interference */
   z-index: 1000;
   width: 48px;
   height: 48px;
@@ -1450,6 +1411,7 @@ body {
   border-radius: 0 0 var(--xp-radius-lg) var(--xp-radius-lg);
   box-shadow: 0 8px 32px 0 rgba(67,80,88,0.12), 0 1.5px 0 0 var(--y2k-orange);
   margin-bottom: var(--space-lg);
+  margin-top: 0; /* Ensure no top margin */
   overflow: hidden;
   position: relative;
   z-index: 10;

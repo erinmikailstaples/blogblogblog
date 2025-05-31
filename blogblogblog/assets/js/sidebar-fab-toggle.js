@@ -19,12 +19,12 @@ document.addEventListener('DOMContentLoaded', function() {
   
   // Apply initial state
   if (sidebarEnabled) {
-    wrapper.classList.add('sidebar-enabled');
+    sidebar.classList.add('sidebar-visible');
     sidebar.setAttribute('aria-expanded', 'true');
     toggleFab.setAttribute('aria-pressed', 'true');
     toggleFab.setAttribute('aria-label', 'Hide sidebar');
   } else {
-    wrapper.classList.remove('sidebar-enabled');
+    sidebar.classList.remove('sidebar-visible');
     sidebar.setAttribute('aria-expanded', 'false');
     toggleFab.setAttribute('aria-pressed', 'false');
     toggleFab.setAttribute('aria-label', 'Show sidebar');
@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function() {
     sidebarEnabled = !sidebarEnabled;
     
     if (sidebarEnabled) {
-      wrapper.classList.add('sidebar-enabled');
+      sidebar.classList.add('sidebar-visible');
       sidebar.setAttribute('aria-expanded', 'true');
       toggleFab.setAttribute('aria-pressed', 'true');
       toggleFab.setAttribute('aria-label', 'Hide sidebar');
@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', function() {
       }, 200);
       
     } else {
-      wrapper.classList.remove('sidebar-enabled');
+      sidebar.classList.remove('sidebar-visible');
       sidebar.setAttribute('aria-expanded', 'false');
       toggleFab.setAttribute('aria-pressed', 'false');
       toggleFab.setAttribute('aria-label', 'Show sidebar');
