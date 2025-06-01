@@ -13,7 +13,83 @@
     "ghost": ">=5.0.0"
   },
   "config": {
-    "card_assets": true
-    
+    "card_assets": true,
+    "custom": {
+      "github_username": {
+        "type": "text",
+        "default": "yourusername",
+        "group": "profile"
+      },
+      "about_image_url": {
+        "type": "text",
+        "default": "/content/images/about-me.jpg",
+        "group": "profile"
+      },
+      "twitter_url": {
+        "type": "text",
+        "default": "https://twitter.com/yourusername",
+        "group": "social"
+      },
+      "instagram_url": {
+        "type": "text",
+        "default": "https://instagram.com/yourusername",
+        "group": "social"
+      },
+      "linkedin_url": {
+        "type": "text",
+        "default": "https://linkedin.com/in/yourusername",
+        "group": "social"
+      },
+      "github_url": {
+        "type": "text",
+        "default": "https://github.com/yourusername",
+        "group": "social"
+      },
+      "spotify_url": {
+        "type": "text",
+        "default": "https://spotify.com/yourusername",
+        "group": "social"
+      },
+      "youtube_url": {
+        "type": "text",
+        "default": "https://youtube.com/@yourusername",
+        "group": "social"
+      },
+      "email_address": {
+        "type": "text",
+        "default": "your@email.com",
+        "group": "contact"
+      },
+      "portfolio_url": {
+        "type": "text",
+        "default": "https://yourportfolio.com",
+        "group": "projects"
+      },
+      "app_url": {
+        "type": "text",
+        "default": "https://yourapp.com",
+        "group": "projects"
+      },
+      "current_game": {
+        "type": "text",
+        "default": "Your current game",
+        "group": "fun_facts"
+      },
+      "current_book": {
+        "type": "text",
+        "default": "Your current book",
+        "group": "fun_facts"
+      },
+      "current_music": {
+        "type": "text",
+        "default": "Your current music",
+        "group": "fun_facts"
+      },
+      "current_project": {
+        "type": "text",
+        "default": "Your current project",
+        "group": "fun_facts"
+      }
+    }
   }
 }

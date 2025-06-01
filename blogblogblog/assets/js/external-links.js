@@ -117,8 +117,8 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   ];
 
-  // Get all links in the content area
-  const links = document.querySelectorAll('a[href]');
+  // Get all links in the content area, but exclude header links entirely
+  const links = document.querySelectorAll('a[href]:not(.xp-menu-icon-link):not(.xp-menu-link)');
   
   links.forEach(link => {
     const href = link.getAttribute('href');
@@ -128,8 +128,12 @@ document.addEventListener('DOMContentLoaded', function() {
       return;
     }
     
-    // Skip links that already have emoji or are in the header menu
-    if (link.closest('.xp-menu-icons') || link.querySelector('.xp-menu-icon')) {
+    // Skip links that are in the header area entirely
+    if (link.closest('.xp-header') || 
+        link.closest('.xp-menu-icons') || 
+        link.closest('.xp-menubar') ||
+        link.querySelector('.xp-menu-icon') ||
+        link.classList.contains('xp-menu-icon-link')) {
       return;
     }
     

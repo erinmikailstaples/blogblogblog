@@ -1,0 +1,67 @@
+{{!< default}}
+
+<article class="github-page" data-github-username="{{@custom.github_username}}">
+  <header class="github-header">
+    <h1 class="github-title y2k-heading">GitHub Activity 💻</h1>
+    <div class="github-subtitle">Live feed of my latest code commits</div>
+  </header>
+  
+  <div class="printer-container">
+    <div class="printer-header">
+      <div class="printer-info">
+        <span class="printer-status">🖨️ DOT MATRIX PRINTER v2.0</span>
+        <span class="printer-paper">CONTINUOUS FEED PAPER</span>
+        <span class="printer-time" id="printer-timestamp">Loading...</span>
+      </div>
+      <div class="printer-controls">
+        <button class="printer-btn" id="refresh-commits">🔄 REFRESH</button>
+        <button class="printer-btn" id="print-commits">🖨️ PRINT</button>
+      </div>
+    </div>
+    
+    <div class="printer-paper-feed">
+      <div class="paper-holes-left"></div>
+      <div class="paper-content">
+        
+        <div class="printer-output" id="commits-output">
+          <div class="loading-message">
+            <pre>
+████████████████████████████████████████████████████████
+█                                                      █
+█                    LOADING COMMITS...                █
+█                                                      █
+█              [████████████████████] 100%             █
+█                                                      █
+████████████████████████████████████████████████████████
+            </pre>
+          </div>
+        </div>
+        
+      </div>
+      <div class="paper-holes-right"></div>
+    </div>
+    
+    <div class="printer-footer">
+      <div class="paper-tear">📄 TEAR ALONG PERFORATION 📄</div>
+    </div>
+  </div>
+  
+  <div class="github-stats">
+    <h3>📊 Quick Stats</h3>
+    <div class="stats-grid">
+      <div class="stat-item">
+        <div class="stat-number" id="total-commits">--</div>
+        <div class="stat-label">Total Commits</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number" id="active-repos">--</div>
+        <div class="stat-label">Active Repos</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number" id="last-commit-date">--</div>
+        <div class="stat-label">Last Commit</div>
+      </div>
+    </div>
+  </div>
+  
+</article>

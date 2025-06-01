@@ -25,11 +25,14 @@ document.addEventListener('DOMContentLoaded', function() {
   links.forEach(link => {
     const href = link.getAttribute('href');
     
-    // Skip anchor links, javascript links, and mail/tel links
+    // Skip anchor links, javascript links, mail/tel links, and header links
     if (!href || href.startsWith('#') || 
         href.startsWith('javascript:') || 
         href.startsWith('mailto:') ||
-        href.startsWith('tel:')) {
+        href.startsWith('tel:') ||
+        link.closest('.xp-header') ||
+        link.closest('.xp-menu-icons') ||
+        link.classList.contains('xp-menu-icon-link')) {
       return;
     }
     
