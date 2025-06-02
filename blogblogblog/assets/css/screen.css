@@ -46,6 +46,90 @@
   box-sizing: border-box;
 }
 
+/* Status Bar (OS-style menu bar) */
+.status-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 28px;
+  background: linear-gradient(180deg, #f0f0f0 0%, #d8d8d8 50%, #c0c0c0 100%);
+  border-bottom: 1px solid #999;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 8px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 11px;
+  color: #333;
+  z-index: 9999;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.status-bar-left {
+  display: flex;
+  align-items: center;
+}
+
+.status-bar-home {
+  background: linear-gradient(180deg, #e8e8e8 0%, #d0d0d0 50%, #b8b8b8 100%);
+  border: 1px solid #999;
+  border-radius: 3px;
+  padding: 2px 8px;
+  text-decoration: none;
+  color: #333;
+  font-size: 11px;
+  transition: all 0.1s ease;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.status-bar-home:hover {
+  background: linear-gradient(180deg, #f0f0f0 0%, #d8d8d8 50%, #c0c0c0 100%);
+  border-color: #666;
+}
+
+.status-bar-home:active {
+  background: linear-gradient(180deg, #c0c0c0 0%, #d8d8d8 50%, #f0f0f0 100%);
+  transform: translateY(1px);
+}
+
+.status-bar-right {
+  display: flex;
+  align-items: center;
+}
+
+.status-bar-text {
+  color: #555;
+  font-size: 11px;
+  max-width: 400px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Adjust body and wrapper when status bar is present */
+body:not(.home) {
+  padding-top: 28px;
+}
+
+body:not(.home) .wrapper {
+  margin-top: 0;
+}
+
+@media (max-width: 600px) {
+  .status-bar-text {
+    max-width: 200px;
+    font-size: 10px;
+  }
+  
+  .status-bar-home {
+    font-size: 10px;
+    padding: 2px 6px;
+  }
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -310,6 +394,10 @@ body {
     padding: var(--space-sm);
     align-items: flex-start;
     padding-top: var(--space-md);
+  }
+  
+  body:not(.home) {
+    padding-top: calc(28px + var(--space-md));
   }
   
   .wrapper {

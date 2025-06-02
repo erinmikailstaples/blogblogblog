@@ -1,0 +1,11 @@
+{{!-- Status Bar Component (like OS menu bar) --}}
+{{#unless is_home}}
+<div class="status-bar">
+  <div class="status-bar-left">
+    <a href="/" class="status-bar-home">🏠 Home</a>
+  </div>
+  <div class="status-bar-right">
+    <span class="status-bar-text">{{@site.description}}</span>
+  </div>
+</div>
+{{/unless}}
