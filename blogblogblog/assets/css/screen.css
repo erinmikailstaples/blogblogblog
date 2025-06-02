@@ -53,17 +53,17 @@
   left: 0;
   right: 0;
   height: 28px;
-  background: linear-gradient(180deg, #f0f0f0 0%, #d8d8d8 50%, #c0c0c0 100%);
-  border-bottom: 1px solid #999;
+  background: linear-gradient(90deg, var(--y2k-orange), var(--y2k-mindaro));
+  border-bottom: 1px solid var(--y2k-orange);
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 8px;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: var(--xp-font);
   font-size: 11px;
-  color: #333;
+  color: var(--y2k-black);
   z-index: 9999;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 8px rgba(255, 134, 0, 0.3);
 }
 
 .status-bar-left {
@@ -72,27 +72,29 @@
 }
 
 .status-bar-home {
-  background: linear-gradient(180deg, #e8e8e8 0%, #d0d0d0 50%, #b8b8b8 100%);
-  border: 1px solid #999;
-  border-radius: 3px;
+  background: linear-gradient(90deg, var(--y2k-mindaro), var(--y2k-orange));
+  border: 1px solid var(--y2k-orange);
+  border-radius: 6px;
   padding: 2px 8px;
   text-decoration: none;
-  color: #333;
+  color: var(--y2k-black);
   font-size: 11px;
-  transition: all 0.1s ease;
+  font-weight: bold;
+  transition: all 0.2s ease;
   display: flex;
   align-items: center;
   gap: 4px;
+  box-shadow: 0 1px 4px rgba(255, 134, 0, 0.3);
 }
 
 .status-bar-home:hover {
-  background: linear-gradient(180deg, #f0f0f0 0%, #d8d8d8 50%, #c0c0c0 100%);
-  border-color: #666;
+  background: linear-gradient(90deg, var(--y2k-orange), var(--y2k-mindaro));
+  box-shadow: 0 2px 8px rgba(255, 134, 0, 0.4);
+  transform: scale(1.02);
 }
 
 .status-bar-home:active {
-  background: linear-gradient(180deg, #c0c0c0 0%, #d8d8d8 50%, #f0f0f0 100%);
-  transform: translateY(1px);
+  transform: scale(0.98);
 }
 
 .status-bar-right {
@@ -101,12 +103,14 @@
 }
 
 .status-bar-text {
-  color: #555;
+  color: var(--y2k-black);
   font-size: 11px;
+  font-weight: bold;
   max-width: 400px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.5);
 }
 
 /* Adjust body and wrapper when status bar is present */
@@ -2075,8 +2079,9 @@ body {
   border-radius: 0 0 var(--xp-radius-lg) var(--xp-radius-lg);
   box-shadow: 0 8px 32px 0 rgba(67,80,88,0.12), 0 1.5px 0 0 var(--y2k-orange);
   margin-bottom: var(--space-lg);
-  margin-top: 0; /* Ensure no top margin */
-  overflow: hidden;
+  margin-top: 0;
+  padding: 0;
+  overflow: visible;
   position: relative;
   z-index: 10;
 }
@@ -2092,6 +2097,7 @@ body {
   position: relative;
   min-height: 3.5rem;
   animation: xp-menubar-wave 3.5s ease-in-out infinite alternate;
+  margin: 0;
 }
 
 @keyframes xp-menubar-wave {
@@ -2276,8 +2282,8 @@ body {
 
 .xp-start-menu {
   position: absolute;
-  top: 4.5rem;
-  left: 2rem;
+  top: calc(100% + 0.5rem);
+  left: 1rem;
   min-width: 320px;
   max-width: 90vw;
   background: linear-gradient(135deg, var(--y2k-pale-azure) 60%, var(--y2k-mindaro) 100%);
