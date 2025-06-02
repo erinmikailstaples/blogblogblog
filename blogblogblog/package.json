@@ -17,7 +17,7 @@
     "custom": {
       "github_username": {
         "type": "text",
-        "default": "yourusername",
+        "default": "erinmikailstaples",
         "group": "profile"
       },
       "about_image_url": {
@@ -25,34 +25,34 @@
         "default": "/content/images/about-me.jpg",
         "group": "profile"
       },
-      "twitter_url": {
+      "bluesky_url": {
         "type": "text",
-        "default": "https://twitter.com/yourusername",
+        "default": "https://bsky.app/profile/erinmikail.bsky.social",
         "group": "social"
       },
       "instagram_url": {
         "type": "text",
-        "default": "https://instagram.com/yourusername",
+        "default": "https://instagram.com/erinmikail",
         "group": "social"
       },
       "linkedin_url": {
         "type": "text",
-        "default": "https://linkedin.com/in/yourusername",
+        "default": "https://linkedin.com/in/erinmikail",
         "group": "social"
       },
       "github_url": {
         "type": "text",
-        "default": "https://github.com/yourusername",
+        "default": "https://github.com/erinmikailstaples",
         "group": "social"
       },
       "spotify_url": {
         "type": "text",
-        "default": "https://spotify.com/yourusername",
+        "default": "https://open.spotify.com/user/1214547172?si=e8902109a96a45c9",
         "group": "social"
       },
       "youtube_url": {
         "type": "text",
-        "default": "https://youtube.com/@yourusername",
+        "default": "https://youtube.com/@erinmikail",
         "group": "social"
       },
       "email_address": {
