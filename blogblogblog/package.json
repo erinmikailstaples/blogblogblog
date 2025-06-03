@@ -30,6 +30,11 @@
         "default": "https://bsky.app/profile/erinmikail.bsky.social",
         "group": "social"
       },
+      "twitter_url": {
+        "type": "text",
+        "default": "https://twitter.com/erinmikail",
+        "group": "social"
+      },
       "instagram_url": {
         "type": "text",
         "default": "https://instagram.com/erinmikail",

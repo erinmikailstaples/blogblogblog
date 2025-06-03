@@ -1,5 +1,5 @@
 <header class="xp-header" aria-label="Homepage Fun Header">
-  <nav class="xp-menubar">
+  <nav class="xp-menubar" role="navigation" aria-label="Main Navigation">
     <div class="xp-menu-start">
       <button class="xp-start-btn" aria-label="Open Start Menu" id="xp-start-btn" data-toggle-startmenu>
         <span class="xp-start-icon" aria-hidden="true">🪟</span>
@@ -7,29 +7,55 @@
       </button>
     </div>
     <ul class="xp-menu-list">
-      <li><a href="/github" class="xp-menu-link">GitHub</a></li>
-      <li><a href="/" class="xp-menu-link">Home</a></li>
-      <li><a href="/about" class="xp-menu-link">About</a></li>
-      <li><a href="/tools" class="xp-menu-link">Tools I Use</a></li>
+      {{#if @site.navigation}}
+        {{navigation}}
+      {{else}}
+        <li><a href="/github" class="xp-menu-link" aria-label="GitHub Profile">GitHub</a></li>
+        <li><a href="/" class="xp-menu-link" aria-label="Home Page">Home</a></li>
+        <li><a href="/about" class="xp-menu-link" aria-label="About Page">About</a></li>
+        <li><a href="/tools" class="xp-menu-link" aria-label="Tools Page">Tools I Use</a></li>
+      {{/if}}
     </ul>
     <div class="xp-menu-icons">
-      <a href="{{@custom.bluesky_url}}" class="xp-menu-icon-link" aria-label="Bluesky" target="_blank" rel="noopener noreferrer">
-        <span class="xp-menu-icon" aria-label="Butterfly">🦋</span>
+      <a href="{{#if @custom.bluesky_url}}{{@custom.bluesky_url}}{{else}}https://bsky.app{{/if}}" class="xp-menu-icon-link" aria-label="Visit Bluesky Profile" target="_blank" rel="noopener noreferrer">
+        <span class="xp-menu-icon" aria-hidden="true">🦋</span>
       </a>
-      <a href="{{@custom.instagram_url}}" class="xp-menu-icon-link" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
-        <span class="xp-menu-icon" aria-label="Cloud">☁️</span>
+      <a href="{{#if @custom.instagram_url}}{{@custom.instagram_url}}{{else}}https://instagram.com{{/if}}" class="xp-menu-icon-link" aria-label="Visit Instagram Profile" target="_blank" rel="noopener noreferrer">
+        <span class="xp-menu-icon" aria-hidden="true">☁️</span>
       </a>
-      <a href="{{@custom.spotify_url}}" class="xp-menu-icon-link" aria-label="Spotify" target="_blank" rel="noopener noreferrer">
-        <span class="xp-menu-icon" aria-label="Music">🎵</span>
+      <a href="{{#if @custom.spotify_url}}{{@custom.spotify_url}}{{else}}https://open.spotify.com{{/if}}" class="xp-menu-icon-link" aria-label="Visit Spotify Profile" target="_blank" rel="noopener noreferrer">
+        <span class="xp-menu-icon" aria-hidden="true">🎵</span>
       </a>
     </div>
   </nav>
   <div class="xp-hero-content">
-    <h1 class="xp-hero-title">BlogBlogBlog</h1>
+    <h1 class="xp-hero-title">{{#if @site.title}}{{@site.title}}{{else}}BlogBlogBlog{{/if}}</h1>
     <p class="xp-hero-bio">
-      Welcome to the wiki playground for the web's weird, wild, and wonderful!<br />
-      <span class="xp-hero-highlight">Maximalism, nostalgia, and a sprinkle of chaos.</span>
+      {{#if @site.description}}
+        {{@site.description}}
+      {{else}}
+        Welcome to the wiki playground for the web's weird, wild, and wonderful!<br />
+        <span class="xp-hero-highlight">Maximalism, nostalgia, and a sprinkle of chaos.</span>
+      {{/if}}
     </p>
   </div>
 </header>
-{{> "start-menu"}} 
+
+{{!-- Error handling for start-menu partial --}}
+{{#get "posts" limit="1" as |has_content|}}
+  {{#if has_content}}
+    {{> "start-menu"}}
+  {{else}}
+    <div id="start-menu" class="start-menu-fallback" style="display: none;">
+      <div class="start-menu-header">
+        <span>Quick Links</span>
+      </div>
+      <div class="start-menu-body">
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/about">About</a></li>
+        </ul>
+      </div>
+    </div>
+  {{/if}}
+{{/get}}

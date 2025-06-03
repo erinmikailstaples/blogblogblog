@@ -1,18 +1,70 @@
 {{!< default}}
 
-{{> "fun-xp-header"}}
+{{!-- Error handling for fun-xp-header partial --}}
+{{#get "posts" limit="1" as |has_content|}}
+  {{#if has_content}}
+    {{> "fun-xp-header"}}
+  {{else}}
+    <header class="fallback-header">
+      <h1>BlogBlogBlog</h1>
+      <p>Welcome to my blog!</p>
+    </header>
+  {{/if}}
+{{/get}}
 
-{{> "main-nav-cards"}}
+{{!-- Error handling for main-nav-cards partial --}}
+{{#get "posts" limit="1" as |has_content|}}
+  {{#if has_content}}
+    {{> "main-nav-cards"}}
+  {{else}}
+    <nav class="fallback-nav">
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/about">About</a></li>
+      </ul>
+    </nav>
+  {{/if}}
+{{/get}}
 
 <section class="post-list">
-    {{#foreach posts}}
-        <a href="{{url}}" class="post-card-link">
-          <article class="post-card {{post_class}}">
-              <h2 class="post-title y2k-heading">{{title}}</h2>
-              {{#if excerpt}}
-                  <p class="post-excerpt">{{excerpt}}</p>
-              {{/if}}
-          </article>
-        </a>
-    {{/foreach}}
+    {{#if posts}}
+        {{#foreach posts}}
+            <a href="{{url}}" class="post-card-link">
+              <article class="post-card {{post_class}}">
+                  <h2 class="post-title y2k-heading">{{title}}</h2>
+                  {{#if excerpt}}
+                      <p class="post-excerpt">{{excerpt}}</p>
+                  {{else}}
+                      <p class="post-excerpt">Click to read this post...</p>
+                  {{/if}}
+              </article>
+            </a>
+        {{/foreach}}
+    {{else}}
+        <div class="no-posts">
+            <h2>No posts yet!</h2>
+            <p>Check back soon for new content.</p>
+        </div>
+    {{/if}}
 </section>
+
+{{!-- Pagination --}}
+<nav class="pagination" role="navigation" aria-label="Pagination Navigation">
+    {{#if pagination}}
+        <div class="pagination-container">
+            {{#if prev}}
+                <a class="pagination-link newer-posts" href="{{page_url prev}}" aria-label="Go to newer posts">
+                    &larr; Newer Posts
+                </a>
+            {{/if}}
+            
+            <span class="pagination-info">Page {{page}} of {{pages}}</span>
+            
+            {{#if next}}
+                <a class="pagination-link older-posts" href="{{page_url next}}" aria-label="Go to older posts">
+                    Older Posts &rarr;
+                </a>
+            {{/if}}
+        </div>
+    {{/if}}
+</nav>
