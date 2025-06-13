@@ -2,6 +2,136 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue:wght@400&family=Inter:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@700;900&family=Quicksand:wght@700&family=Poppins:wght@700&display=swap');
 
+/* Essential Ghost Navigation Reset */
+.nav {
+  display: contents !important;
+}
+
+.nav ul {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  list-style: none !important;
+  width: auto !important;
+}
+
+.nav li {
+  display: inline-block !important;
+  width: auto !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.nav a {
+  display: inline-block !important;
+  padding: 0.5rem 1.2rem !important;
+  text-decoration: none !important;
+  color: var(--y2k-outer-space) !important;
+  background: rgba(255,255,255,0.9) !important;
+  border-radius: 8px !important;
+  font-weight: 700 !important;
+  border: 1px solid var(--y2k-pale-azure) !important;
+  white-space: nowrap !important;
+}
+
+/* Clear any floating and remove list styles */
+.nav ul:after,
+.nav ul:before,
+.nav li:after,
+.nav li:before {
+  display: none !important;
+  content: none !important;
+}
+
+/* Remove any margin/padding from nav container */
+.xp-menu-list .nav {
+  margin: 0 !important;
+  padding: 0 !important;
+  width: auto !important;
+}
+
+/* Ensure horizontal layout on mobile */
+@media (max-width: 768px) {
+  .nav ul {
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+}
+
+
+
+/* Custom Navigation Styles */
+.xp-menu-list {
+  display: flex !important;
+  flex-direction: row !important;
+  list-style: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  gap: 0.5rem !important;
+}
+
+.xp-menu-list li {
+  display: inline-block !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.xp-menu-link {
+  display: inline-block !important;
+  padding: 0.5rem 1.2rem !important;
+  text-decoration: none;
+  color: var(--y2k-outer-space);
+  background: rgba(255,255,255,0.9);
+  border-radius: 8px;
+  font-weight: 700;
+  border: 1px solid var(--y2k-pale-azure);
+  white-space: nowrap;
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  .xp-menu-list {
+    flex-wrap: nowrap !important;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* XP Menu Bar - Main Navigation */
+.xp-menubar {
+  position: relative;
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 1rem;
+  background: rgba(255,255,255,0.55);
+  margin: 0;
+  min-height: 3.5rem;
+  width: 100%;
+  z-index: 10;
+}
+
+/* Menu icons and start button */
+.xp-menu-start {
+  flex: 0 0 auto;
+}
+
+.xp-menu-icons {
+  flex: 0 0 auto;
+}
+
+/* Remove any float clearing or old styles */
+.xp-menubar:after,
+.xp-menu-list:after,
+.xp-menu-list li:after {
+  display: none !important;
+  content: none !important;
+}
 /* Y2K Bright Color Palette and Style Updates */
 :root {
   --y2k-pale-azure: #89daff;
@@ -39,6 +169,9 @@
   --xp-font: 'Nunito', 'Quicksand', 'Poppins', Arial, sans-serif;
 }
 
+/* Y2K Color Palette and Style Updates */
+
+
 /* Basic reset and box-sizing */
 * {
   margin: 0;
@@ -46,55 +179,82 @@
   box-sizing: border-box;
 }
 
-/* Status Bar (OS-style menu bar) */
+/* Status Bar (Chrome Tabs Style) */
 .status-bar {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  height: 28px;
-  background: linear-gradient(90deg, var(--y2k-orange), var(--y2k-mindaro));
-  border-bottom: 1px solid var(--y2k-orange);
+  height: 32px;
+  background: linear-gradient(to bottom, #f1f3f4, #e8eaed);
+  border-bottom: 1px solid #dadce0;
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  padding: 0 8px;
-  font-family: var(--xp-font);
-  font-size: 11px;
-  color: var(--y2k-black);
-  z-index: 9999;
-  box-shadow: 0 2px 8px rgba(255, 134, 0, 0.3);
+  align-items: center;
+  padding: 0 16px;
+  z-index: 1000;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
-.status-bar-left {
+.status-bar-tabs {
   display: flex;
+  gap: 2px;
+  height: 100%;
   align-items: center;
 }
 
-.status-bar-home {
-  background: linear-gradient(90deg, var(--y2k-mindaro), var(--y2k-orange));
-  border: 1px solid var(--y2k-orange);
-  border-radius: 6px;
-  padding: 2px 8px;
+.status-bar-tab {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 28px;
+  padding: 0 16px;
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid #dadce0;
+  border-bottom: none;
+  border-radius: 8px 8px 0 0;
   text-decoration: none;
-  color: var(--y2k-black);
-  font-size: 11px;
-  font-weight: bold;
+  color: #5f6368;
+  font-size: 13px;
+  font-weight: 500;
   transition: all 0.2s ease;
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  box-shadow: 0 1px 4px rgba(255, 134, 0, 0.3);
+  position: relative;
+  min-width: 100px;
+  max-width: 200px;
+  overflow: hidden;
 }
 
-.status-bar-home:hover {
-  background: linear-gradient(90deg, var(--y2k-orange), var(--y2k-mindaro));
-  box-shadow: 0 2px 8px rgba(255, 134, 0, 0.4);
-  transform: scale(1.02);
+.status-bar-tab:hover {
+  background: rgba(255, 255, 255, 0.9);
+  color: #202124;
 }
 
-.status-bar-home:active {
-  transform: scale(0.98);
+.status-bar-tab.active {
+  background: #fff;
+  color: #202124;
+  border-bottom: 2px solid #1a73e8;
+  z-index: 1;
+}
+
+.status-bar-tab.active::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: #fff;
+}
+
+.tab-icon {
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+.tab-label {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .status-bar-right {
@@ -103,19 +263,18 @@
 }
 
 .status-bar-text {
-  color: var(--y2k-black);
-  font-size: 11px;
-  font-weight: bold;
+  color: #5f6368;
+  font-size: 12px;
+  font-weight: 500;
   max-width: 400px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.5);
 }
 
 /* Adjust body and wrapper when status bar is present */
 body:not(.home) {
-  padding-top: 28px;
+  padding-top: 32px;
 }
 
 body:not(.home) .wrapper {
@@ -123,14 +282,22 @@ body:not(.home) .wrapper {
 }
 
 @media (max-width: 600px) {
-  .status-bar-text {
-    max-width: 200px;
-    font-size: 10px;
+  .status-bar {
+    padding: 0 8px;
   }
   
-  .status-bar-home {
-    font-size: 10px;
-    padding: 2px 6px;
+  .status-bar-tab {
+    padding: 0 8px;
+    min-width: 60px;
+  }
+  
+  .tab-label {
+    display: none;
+  }
+  
+  .status-bar-text {
+    max-width: 200px;
+    font-size: 11px;
   }
 }
 
@@ -401,7 +568,7 @@ body {
   }
   
   body:not(.home) {
-    padding-top: calc(28px + var(--space-md));
+    padding-top: calc(32px + var(--space-md));
   }
   
   .wrapper {
@@ -872,19 +1039,46 @@ body {
   font-size: 1.2rem;
   margin: 0 0 0.5rem 0;
 }
+.site-nav {
+  display: flex;
+  align-items: flex-end;
+  gap: 2px;
+  background: var(--y2k-pale-azure);
+  padding: 0 0.5rem;
+  border-radius: 8px 8px 0 0;
+  border-bottom: 2px solid var(--y2k-orange);
+}
+
 .site-nav a {
   color: var(--y2k-black);
   background: var(--y2k-mindaro);
-  border-radius: 4px;
-  padding: 0.3rem 0.8rem;
-  margin: 0 0.2rem;
+  border-radius: 8px 8px 0 0;
+  padding: 0.5rem 1rem;
+  margin: 0;
   text-decoration: none;
   font-weight: bold;
-  transition: background 0.2s, color 0.2s;
+  transition: all 0.2s ease;
+  position: relative;
+  border: 2px solid var(--y2k-orange);
+  border-bottom: none;
+  min-width: 80px;
+  text-align: center;
+  transform: translateY(2px);
 }
+
 .site-nav a:hover {
   background: var(--y2k-orange);
   color: var(--y2k-white);
+  transform: translateY(0);
+  z-index: 10;
+}
+
+.site-nav a.active {
+  background: var(--y2k-white);
+  color: var(--y2k-black);
+  transform: translateY(0);
+  z-index: 10;
+  border-bottom: 2px solid var(--y2k-white);
 }
 
 .page-header .page-title {
@@ -2329,24 +2523,17 @@ body {
   z-index: 10;
 }
 
-.xp-menubar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background: rgba(255,255,255,0.55);
-  box-shadow: 0 2px 12px 0 rgba(67,80,88,0.10);
-  border-radius: 0 0 24px 24px;
-  padding: 0.5rem 2rem 0.5rem 1rem;
-  position: relative;
-  min-height: 3.5rem;
-  animation: xp-menubar-wave 3.5s ease-in-out infinite alternate;
-  margin: 0;
-}
-
+/* XP Menu Bar styles are now in a single unified section at the top of the file */
 @keyframes xp-menubar-wave {
   0% { border-radius: 0 0 24px 24px; }
   50% { border-radius: 0 0 36px 36px / 0 0 48px 48px; }
   100% { border-radius: 0 0 24px 24px / 0 0 24px 24px; }
+}
+
+.xp-menubar {
+  box-shadow: 0 2px 12px 0 rgba(67,80,88,0.10);
+  border-radius: 0 0 24px 24px;
+  animation: xp-menubar-wave 3.5s ease-in-out infinite alternate;
 }
 
 .xp-menu-start {
@@ -2383,35 +2570,15 @@ body {
   letter-spacing: 0.04em;
 }
 
-.xp-menu-list {
-  display: flex;
-  gap: 1.2rem;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-.xp-menu-link {
-  color: var(--y2k-outer-space);
-  background: rgba(255,255,255,0.7);
-  border-radius: 8px;
-  padding: 0.3rem 1.1rem;
-  font-weight: 700;
-  font-size: 1.05rem;
-  text-decoration: none;
-  box-shadow: 0 1px 4px var(--y2k-pale-azure);
-  transition: background 0.2s, color 0.2s, box-shadow 0.2s, transform 0.2s;
-}
-.xp-menu-link:hover, .xp-menu-link:focus-visible {
-  background: var(--y2k-orange);
-  color: var(--y2k-white);
-  box-shadow: 0 2px 12px var(--y2k-orange);
-  transform: scale(1.08) rotate(-2deg);
-}
+/* Navigation menu styles have been consolidated at the top of the file */
 
+/* Remove any floating or absolute positioning that might affect the layout */
+/* Other menu-related styles */
 .xp-menu-icons {
+  position: relative;
   display: flex;
-  gap: 0.7rem;
   align-items: center;
+  gap: 0.7rem;
 }
 .xp-menu-icon {
   font-size: 1.3em;
@@ -2478,14 +2645,17 @@ body {
   text-shadow: 0 1px 8px var(--y2k-mindaro);
 }
 
+/* Remove redundant style block since it's now covered above */
 @media (max-width: 600px) {
   .xp-header {
     border-radius: 0 0 18px 18px;
   }
   .xp-menubar {
-    flex-direction: column;
-    gap: 0.7rem;
-    padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+    flex-direction: row !important;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    justify-content: space-between;
+    align-items: center;
   }
   .xp-hero-content {
     padding: 1.2rem 0.5rem 1rem 0.5rem;
@@ -2494,6 +2664,8 @@ body {
   .xp-hero-title {
     font-size: clamp(2rem, 8vw, 2.7rem);
   }
+  
+  /* Mobile navigation styling already handled above */
 }
 
 @media (prefers-reduced-motion: reduce) {

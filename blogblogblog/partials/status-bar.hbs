@@ -1,9 +1,24 @@
-{{!-- Status Bar Component (like OS menu bar) --}}
+{{!-- Status Bar Component (like Chrome tabs) --}}
 {{#is "home"}}
 {{else}}
 <div class="status-bar">
-  <div class="status-bar-left">
-    <a href="/" class="status-bar-home">🏠 Home</a>
+  <div class="status-bar-tabs">
+    <a href="/" class="status-bar-tab {{#is "home"}}active{{/is}}">
+      <span class="tab-icon">🏠</span>
+      <span class="tab-label">Home</span>
+    </a>
+    <a href="/about" class="status-bar-tab {{#is "page"}}{{#if slug}}{{#has slug="about"}}active{{/has}}{{/if}}{{/is}}">
+      <span class="tab-icon">👤</span>
+      <span class="tab-label">About</span>
+    </a>
+    <a href="/tools" class="status-bar-tab {{#is "page"}}{{#if slug}}{{#has slug="tools"}}active{{/has}}{{/if}}{{/is}}">
+      <span class="tab-icon">🛠️</span>
+      <span class="tab-label">Tools</span>
+    </a>
+    <a href="/links" class="status-bar-tab {{#is "page"}}{{#if slug}}{{#has slug="links"}}active{{/has}}{{/if}}{{/is}}">
+      <span class="tab-icon">🔗</span>
+      <span class="tab-label">Links</span>
+    </a>
   </div>
   <div class="status-bar-right">
     <span class="status-bar-text">{{@site.description}}</span>

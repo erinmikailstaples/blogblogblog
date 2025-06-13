@@ -11,11 +11,11 @@
         </pre>
     </div>
     <nav class="site-nav">
-        <a href="{{@site.url}}">Home</a>
-        <a href="{{@site.url}}/random">Random</a>
-        {{#foreach navigation}}
-            <a href="{{url absolute=\"true\"}}">{{label}}</a>
-        {{/foreach}}
+    <a href="{{@site.url}}" {{#is "home"}}class="active"{{/is}}>Home</a>
+    <a href="{{@site.url}}/random" {{#is "page"}}{{#if slug}}{{#has slug="random"}}class="active"{{/has}}{{/if}}{{/is}}>Random</a>
+    {{#foreach navigation}}
+    <a href="{{url absolute=\"true\"}}" {{#is "page"}}{{#if ../slug}}{{#has ../slug label}}class="active"{{/has}}{{/if}}{{/is}}>{{label}}</a>
+    {{/foreach}}
     </nav>
     <button id="theme-toggle" class="flashlight-toggle" aria-label="Toggle dark mode" aria-pressed="false">
       <!-- SVG Flashlight Icon: Light beam visible in light mode, hidden in dark mode -->
