@@ -37,6 +37,13 @@
                   {{else}}
                       <p class="post-excerpt">Click to read this post...</p>
                   {{/if}}
+                  {{#if tags}}
+                    <ul class="post-tags">
+                      {{#foreach tags}}
+                        <li class="post-tag"><a href="{{url}}">{{name}}</a></li>
+                      {{/foreach}}
+                    </ul>
+                  {{/if}}
               </article>
             </a>
         {{/foreach}}
