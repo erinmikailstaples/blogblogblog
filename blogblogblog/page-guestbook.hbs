@@ -1,0 +1,55 @@
+{{!< default}}
+
+<article class="guestbook-page">
+  <header class="guestbook-header">
+    <h1 class="guestbook-title y2k-heading">📝 Sign My Guestbook!</h1>
+    <p class="guestbook-intro">Leave your mark on my little corner of the web! Draw, doodle, or just say hi.</p>
+  </header>
+
+  {{!-- Guestbook Form --}}
+  <section class="guestbook-form-section">
+    <h2>Leave a Message</h2>
+    <form class="guestbook-form" id="guestbook-form">
+      <div class="form-group">
+        <label for="username">Your Name:</label>
+        <input type="text" id="username" name="username" required maxlength="50" 
+               placeholder="What should we call you?">
+      </div>
+
+      <div class="form-group">
+        <label for="message">Your Message:</label>
+        <textarea id="message" name="message" rows="4" maxlength="500" 
+                  placeholder="Say something nice... or weird... this is the web after all!"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label>Draw Something (Optional):</label>
+        <div class="drawing-area">
+          <canvas id="drawing-canvas" width="400" height="200"></canvas>
+          <div class="drawing-controls">
+            <button type="button" id="clear-canvas">Clear</button>
+            <input type="color" id="pen-color" value="#ff8600">
+            <input type="range" id="pen-size" min="1" max="10" value="3">
+          </div>
+        </div>
+        <input type="hidden" id="drawing-data" name="drawing">
+      </div>
+
+      <button type="submit" class="submit-btn">Sign the Guestbook! ✨</button>
+    </form>
+  </section>
+
+  {{!-- Display Existing Entries --}}
+  <section class="guestbook-entries">
+    <h2>Recent Signatures</h2>
+    <div id="entries-container" class="entries-grid">
+      <div class="loading-message">Loading guestbook entries...</div>
+    </div>
+  </section>
+
+  {{!-- Success Message --}}
+  <div id="success-message" class="success-message" style="display: none;">
+    <h3>Thanks for signing! 🎉</h3>
+    <p>Your message has been added to the guestbook.</p>
+  </div>
+</article>

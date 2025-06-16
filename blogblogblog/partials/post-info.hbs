@@ -1,0 +1,12 @@
+<section class="post-info">
+    <span class="post-author">By {{primary_author.name}}</span>
+    {{!-- Mood: If using a custom tag like mood-happy, mood-sad, etc. --}}
+    {{#has tag="mood-happy"}}
+        <span class="post-mood">Mood: Happy <span class="mood-emoji">:)</span></span>
+    {{/has}}
+    {{#has tag="mood-sad"}}
+        <span class="post-mood">Mood: Sad <span class="mood-emoji">:(</span></span>
+    {{/has}}
+    {{!-- Add more moods as needed --}}
+    <span class="post-updated">Last updated: {{date updated_at format="MMM D, YYYY"}}</span>
+</section> 

@@ -1,0 +1,20 @@
+<aside class="xp-start-menu" id="xp-start-menu" aria-label="Start Menu" tabindex="-1" hidden>
+  <div class="xp-start-menu-content">
+    <section class="xp-start-categories">
+      <h3>Categories</h3>
+      <ul>
+        {{#get "tags" limit="all"}}
+          {{#foreach tags}}
+            <li><a href="/tag/{{slug}}">{{name}}</a></li>
+          {{/foreach}}
+        {{/get}}
+      </ul>
+    </section>
+    <section class="xp-start-random">
+      <h3>Random Post</h3>
+      <a href="{{@site.url}}/random">Go!</a>
+    </section>
+    {{> "recently-edited"}}
+    {{> "random-fact"}}
+  </div>
+</aside> 

@@ -1,0 +1,41 @@
+<header class="site-header">
+    <div class="site-logo">
+        <!-- Example ASCII logo, replace with your own or use an image -->
+        <pre>
+  __  __       _ _       
+ |  \/  |     (_) |      
+ | \  / | __ _ _| |_ ___ 
+ | |\/| |/ _` | | __/ _ \
+ | |  | | (_| | | ||  __/
+ |_|  |_|\__,_|_|\__\___|
+        </pre>
+    </div>
+    <nav class="site-nav">
+    <a href="{{@site.url}}" {{#is "home"}}class="active"{{/is}}>Home</a>
+    <a href="{{@site.url}}/random" {{#is "page"}}{{#if slug}}{{#has slug="random"}}class="active"{{/has}}{{/if}}{{/is}}>Random</a>
+    {{#foreach navigation}}
+    <a href="{{url absolute=\"true\"}}" {{#is "page"}}{{#if ../slug}}{{#has ../slug label}}class="active"{{/has}}{{/if}}{{/is}}>{{label}}</a>
+    {{/foreach}}
+    </nav>
+    <button id="theme-toggle" class="flashlight-toggle" aria-label="Toggle dark mode" aria-pressed="false">
+      <!-- SVG Flashlight Icon: Light beam visible in light mode, hidden in dark mode -->
+      <svg class="flashlight-icon" width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+        <g>
+          <!-- Flashlight body -->
+          <rect x="14" y="16" width="8" height="14" rx="3" fill="#222" stroke="#fff" stroke-width="2"/>
+          <!-- Flashlight head -->
+          <ellipse cx="18" cy="16" rx="6" ry="3" fill="#fff" stroke="#222" stroke-width="2"/>
+          <!-- Button on flashlight -->
+          <circle cx="18" cy="22" r="1.2" fill="#ff0" stroke="#222" stroke-width="1"/>
+          <!-- Light beam (show/hide with CSS) -->
+          <polygon class="flashlight-beam" points="12,16 24,16 30,2 6,2" fill="url(#beam-gradient)" opacity="1"/>
+          <defs>
+            <linearGradient id="beam-gradient" x1="18" y1="16" x2="18" y2="2" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#ffff99" stop-opacity="0.8"/>
+              <stop offset="1" stop-color="#ffff99" stop-opacity="0"/>
+            </linearGradient>
+          </defs>
+        </g>
+      </svg>
+    </button>
+</header> 

@@ -2,3 +2,7 @@ ghost-blog
 ghost-site
 ghost-local
 .env
+.cursor
+.cursorrules
+ghost-local
+AGENT.md

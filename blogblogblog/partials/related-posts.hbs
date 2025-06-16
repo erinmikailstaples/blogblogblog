@@ -1,0 +1,10 @@
+<section class="related-posts">
+    <h3>Related Articles</h3>
+    <ul>
+        {{#get "posts" filter="tags:[{{primary_tag.slug}}]+id:-{{id}}" limit="3"}}
+            {{#foreach posts}}
+                <li><a href="{{url}}">{{title}}</a></li>
+            {{/foreach}}
+        {{/get}}
+    </ul>
+</section> 

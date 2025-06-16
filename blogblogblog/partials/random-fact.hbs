@@ -1,0 +1,18 @@
+<div class="random-fact">
+    <strong>Did you know?</strong>
+    <span id="random-fact-text">Ghost is open source!</span>
+</div>
+<script>
+    // Example JS for rotating facts
+    const facts = [
+        "Ghost is open source!",
+        "You can use Handlebars for custom themes.",
+        "This wiki supports random posts!"
+    ];
+    document.addEventListener('DOMContentLoaded', function() {
+        const el = document.getElementById('random-fact-text');
+        if (el) {
+            el.textContent = facts[Math.floor(Math.random() * facts.length)];
+        }
+    });
+</script> 

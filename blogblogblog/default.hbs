@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{meta_title}}</title>
+    {{ghost_head}} <!-- Required: Injects Ghost's <head> content -->
+    <link rel="stylesheet" href="{{asset "css/screen.css"}}">
+</head>
+<body class="{{body_class}}">
+    {{> "status-bar"}}
+    
+    <!-- Main wrapper for sidebar and content -->
+    <div class="wrapper" id="main-wrapper">
+        <!-- Sidebar (hidden by default) -->
+        {{> "sidebar"}}
+        
+        <!-- Main content area -->
+        <main class="content">
+            {{{body}}} <!-- This is where page-specific content is rendered -->
+        </main>
+    </div>
+    {{ghost_foot}} <!-- Required: Injects Ghost's <footer> content -->
+    <script src="{{asset "js/sidebar-toggle.js"}}"></script>
+    <script src="{{asset "js/meme-rotator.js"}}"></script>
+    <script src="{{asset "js/external-links.js"}}"></script>
+    <script src="{{asset "js/reading-progress.js"}}"></script>
+    <script src="{{asset "js/linkable-headings.js"}}"></script>
+    <script src="{{asset "js/link-preview.js"}}"></script>
+    <script src="{{asset "js/y2k-cursor.js"}}"></script>
+    <script src="{{asset "js/visitor-counter.js"}}"></script>
+    <script src="{{asset "js/start-menu.js"}}"></script>
+    <script src="{{asset "js/random-post.js"}}"></script>
+    <script src="{{asset "js/github-commits.js"}}"></script>
+    <script src="{{asset "js/tools-page.js"}}"></script>
+    <script src="{{asset "js/guestbook.js"}}"></script>
+</body>
+</html>
