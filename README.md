@@ -1,3 +1,4 @@
+
 # 🪟 BlogBlogBlog
 
 A retro-fabulous [ghost.org](https://ghost.org) theme that brings back the Windows XP/Y2K aesthetic we all secretly miss! Remember that satisfying *click* of the Start button? The iconic Bliss wallpaper? The excitement of MSN Messenger pings? This theme packages all that nostalgic dopamine into a modern Ghost template. For those who spent hours customizing WinAmp skins, creating the perfect MySpace layout, or waiting forever for Limewire downloads - this one boots up just for you! 💾💙
@@ -34,6 +35,31 @@ blogblogblog/
 ├── page-github.hbs         # GitHub profile page
 ├── page-tools.hbs          # Tools showcase page
 └── package.json            # Theme metadata and configuration
+=======
+# blogblogblog
+
+A simple, scalable, wiki-like Ghost theme with a sidebar for author info.
+
+## Features
+
+- **Clean Design**: Minimalist layout focusing on readability
+- **Author Sidebar**: Dedicated sidebar displaying author profile, image, and bio
+- **Responsive**: Adapts to different screen sizes
+- **Wiki-like**: Simple, content-focused design perfect for knowledge sharing
+- **Ghost 5.x Compatible**: Built for the latest Ghost version
+
+## Theme Structure
+
+```
+template/
+├── assets/
+│   └── css/
+├── partials/
+│   └── sidebar.hbs      # Author information sidebar
+├── default.hbs          # Main layout template
+├── index.hbs           # Homepage template
+├── post.hbs            # Individual post template
+└── package.json        # Theme metadata
 ```
 
 ## Installation
@@ -61,29 +87,24 @@ ghost install local
 ```
 
 Once installation is complete, your Ghost site will be available at:
-
-- **Frontend**: [http://localhost:2368](http://localhost:2368)
-- **Admin**: [http://localhost:2368/ghost](http://localhost:2368/ghost)
+- **Frontend**: http://localhost:2368
+- **Admin**: http://localhost:2368/ghost
 
 ### Installing the blogblogblog Theme
 
 1. **Download the theme**:
-
    ```bash
    git clone https://github.com/erinmikailstaples/blogblogblog.git
    ```
 
 2. **Copy theme to Ghost**:
-
    Copy the `template` folder to your Ghost installation's themes directory:
-
    ```bash
    cp -r blogblogblog/template /path/to/your/ghost/content/themes/blogblogblog
    ```
 
 3. **Activate the theme**:
-
-   - Go to Ghost Admin [http://localhost:2368/ghost](https://localhost:2368/ghost)
+   - Go to Ghost Admin (http://localhost:2368/ghost)
    - Navigate to **Settings** → **Design**
    - Click **Change theme**
    - Select **blogblogblog** from the list
@@ -119,8 +140,6 @@ The theme now includes robust error handling for all partials:
   {{/if}}
 {{/get}}
 ```
-
-This ensures your site remains functional even if certain parts fail to load.
 
 #### Live Reloading
 
@@ -200,6 +219,25 @@ The theme uses CSS variables for easy customization. Modify `assets/css/screen.c
 ### Adding New Templates
 
 Create new Handlebars templates following Ghost's [theme structure](https://ghost.org/docs/themes/) conventions. Remember to include error handling for all partials!
+=======
+## Customization
+
+### Modifying the Sidebar
+
+Edit `partials/sidebar.hbs` to customize the author information display or add additional sidebar content like navigation links, social media icons, or custom widgets.
+
+### Styling
+
+The theme uses a clean CSS structure. Modify `assets/css/screen.css` to customize:
+- Colors and typography
+- Layout and spacing
+- Responsive breakpoints
+- Sidebar styling
+
+### Adding New Templates
+
+Create new Handlebars templates following Ghost's [theme structure](https://ghost.org/docs/themes/structure/) conventions.
+
 
 ## Contributing
 
@@ -213,12 +251,6 @@ Create new Handlebars templates following Ghost's [theme structure](https://ghos
 
 MIT License - see LICENSE file for details.
 
-## 🛟 Support
-
-- [Ghost Theme Documentation](https://ghost.org/docs/themes/)
-- [Ghost Community Forum](https://forum.ghost.org/)
-- [Theme Issues](https://github.com/erinmikailstaples/blogblogblog/issues)
-
 ## 🖥️ Recent Updates
 
 - **Error Handling**: All partials now have robust error handling with fallbacks
@@ -229,7 +261,7 @@ MIT License - see LICENSE file for details.
 
 ## 👩‍💻 Author
 
-**[Erin Mikail Staples](https://erinmikilstaples.com)**
+**[Erin Mikail Staples](https://erinmikailstaples.com)**
 
 Built with ❤️ for the Ghost community and everyone who misses the simpler days of the early internet.
 
