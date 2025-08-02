@@ -39,6 +39,16 @@
         "default": true,
         "group": "social"
       },
+      "instagram_url": {
+        "type": "text",
+        "default": "https://instagram.com/erinmikail",
+        "group": "social"
+      },
+      "show_instagram": {
+        "type": "boolean",
+        "default": true,
+        "group": "social"
+      },
       "email_address": {
         "type": "text",
         "default": "your@email.com",
