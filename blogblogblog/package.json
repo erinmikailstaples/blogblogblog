@@ -39,66 +39,6 @@
         "default": true,
         "group": "social"
       },
-      "twitter_url": {
-        "type": "text",
-        "default": "https://twitter.com/erinmikail",
-        "group": "social"
-      },
-      "show_twitter": {
-        "type": "boolean",
-        "default": true,
-        "group": "social"
-      },
-      "instagram_url": {
-        "type": "text",
-        "default": "https://instagram.com/erinmikail",
-        "group": "social"
-      },
-      "show_instagram": {
-        "type": "boolean",
-        "default": true,
-        "group": "social"
-      },
-      "linkedin_url": {
-        "type": "text",
-        "default": "https://linkedin.com/in/erinmikail",
-        "group": "social"
-      },
-      "show_linkedin": {
-        "type": "boolean",
-        "default": true,
-        "group": "social"
-      },
-      "github_url": {
-        "type": "text",
-        "default": "https://github.com/erinmikailstaples",
-        "group": "social"
-      },
-      "show_github": {
-        "type": "boolean",
-        "default": true,
-        "group": "social"
-      },
-      "spotify_url": {
-        "type": "text",
-        "default": "https://open.spotify.com/user/1214547172?si=e8902109a96a45c9",
-        "group": "social"
-      },
-      "show_spotify": {
-        "type": "boolean",
-        "default": true,
-        "group": "social"
-      },
-      "youtube_url": {
-        "type": "text",
-        "default": "https://youtube.com/@erinmikail",
-        "group": "social"
-      },
-      "show_youtube": {
-        "type": "boolean",
-        "default": true,
-        "group": "social"
-      },
       "email_address": {
         "type": "text",
         "default": "your@email.com",
@@ -108,26 +48,6 @@
         "type": "boolean",
         "default": true,
         "group": "contact"
-      },
-      "portfolio_url": {
-        "type": "text",
-        "default": "https://yourportfolio.com",
-        "group": "projects"
-      },
-      "show_portfolio": {
-        "type": "boolean",
-        "default": true,
-        "group": "projects"
-      },
-      "app_url": {
-        "type": "text",
-        "default": "https://yourapp.com",
-        "group": "projects"
-      },
-      "show_app": {
-        "type": "boolean",
-        "default": true,
-        "group": "projects"
       },
       "current_game": {
         "type": "text",
