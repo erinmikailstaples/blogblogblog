@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
   }
   
   // Get all headings in the post/page content area only
-  const contentArea = document.querySelector('.post-full-content');
+  const contentArea = document.querySelector('.post-content') || document.querySelector('.post-full-content');
   
   if (!contentArea) return;
   

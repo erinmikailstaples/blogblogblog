@@ -19,6 +19,21 @@
             <h3>Random Post</h3>
             <a href="{{@site.url}}/random">Go!</a>
         </section>
+        
+        {{#if @custom.portfolio_url}}
+        <section class="sidebar-projects">
+            <h3>Projects</h3>
+            <ul>
+                {{#if @custom.portfolio_url}}
+                    <li><a href="{{@custom.portfolio_url}}" target="_blank" rel="noopener">Portfolio</a></li>
+                {{/if}}
+                {{#if @custom.app_url}}
+                    <li><a href="{{@custom.app_url}}" target="_blank" rel="noopener">Latest App</a></li>
+                {{/if}}
+            </ul>
+        </section>
+        {{/if}}
+        
         {{> "recently-edited"}}
         {{> "random-fact"}}
     </div>

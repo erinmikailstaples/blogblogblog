@@ -3034,3 +3034,46 @@ body {
     padding: 0.15em 0.7em;
   }
 }
+
+/* --- Sidebar Projects Section --- */
+.sidebar-projects {
+  margin-bottom: var(--space-lg);
+}
+
+.sidebar-projects h3 {
+  font-family: var(--gh-font-heading);
+  font-weight: 700;
+  color: var(--y2k-outer-space);
+  margin-bottom: var(--space-sm);
+}
+
+.sidebar-projects ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-projects li {
+  margin-bottom: 0.5rem;
+}
+
+.sidebar-projects a {
+  color: var(--y2k-orange);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.sidebar-projects a:hover,
+.sidebar-projects a:focus-visible {
+  color: var(--y2k-plum);
+  text-decoration: underline;
+}
+
+.sidebar-projects a::before {
+  content: "🚀";
+  font-size: 0.875rem;
+}
