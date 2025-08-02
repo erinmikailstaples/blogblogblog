@@ -1,6 +1,7 @@
 ghost-blog
 ghost-site
 ghost-local
+local-test
 .env
 .cursor
 .cursorrules

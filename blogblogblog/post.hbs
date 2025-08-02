@@ -6,8 +6,102 @@
         {{#if feature_image}}
             <img class="post-feature-image" src="{{feature_image}}" alt="{{title}}">
         {{/if}}
+        
+        <!-- Enhanced post metadata -->
+        <div class="post-meta">
+            {{> "post-info"}}
+            
+            <!-- Reading time and word count -->
+            <div class="post-stats">
+                <span class="reading-time">
+                    <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <polyline points="12,6 12,12 16,14"></polyline>
+                    </svg>
+                    {{reading_time}} min read
+                </span>
+                <span class="word-count">
+                    <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                        <polyline points="14,2 14,8 20,8"></polyline>
+                        <line x1="16" y1="13" x2="8" y2="13"></line>
+                        <line x1="16" y1="17" x2="8" y2="17"></line>
+                        <polyline points="10,9 9,9 8,9"></polyline>
+                    </svg>
+                    {{word_count}} words
+                </span>
+            </div>
+        </div>
     </header>
-    <section class="post-content">
-        {{content}}
-    </section>
+    
+    <!-- Table of Contents Toggle -->
+    <div class="toc-controls">
+        <button class="toc-toggle" id="toc-toggle" aria-label="Toggle table of contents">
+            <svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="8" y1="6" x2="21" y2="6"></line>
+                <line x1="8" y1="12" x2="21" y2="12"></line>
+                <line x1="8" y1="18" x2="21" y2="18"></line>
+                <line x1="3" y1="6" x2="3.01" y2="6"></line>
+                <line x1="3" y1="12" x2="3.01" y2="12"></line>
+                <line x1="3" y1="18" x2="3.01" y2="18"></line>
+            </svg>
+            <span>Table of Contents</span>
+        </button>
+    </div>
+    
+    <div class="post-content-wrapper">
+        <!-- Table of Contents Sidebar -->
+        <aside class="post-toc-sidebar" id="post-toc-sidebar">
+            {{> "post-toc"}}
+        </aside>
+        
+        <!-- Main content -->
+        <section class="post-content" id="post-content">
+            {{content}}
+        </section>
+    </div>
+    
+    <!-- Post interaction section -->
+    <footer class="post-footer">
+        <!-- Like button -->
+        <div class="post-actions">
+            <button class="like-button" id="like-button" data-post-id="{{id}}">
+                <svg class="like-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                </svg>
+                <span class="like-text">Like this post</span>
+                <span class="like-count" id="like-count">0</span>
+            </button>
+            
+            <!-- Share button -->
+            <button class="share-button" id="share-button">
+                <svg class="share-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="18" cy="5" r="3"></circle>
+                    <circle cx="6" cy="12" r="3"></circle>
+                    <circle cx="18" cy="19" r="3"></circle>
+                    <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+                    <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+                </svg>
+                <span>Share</span>
+            </button>
+        </div>
+        
+        <!-- Tags -->
+        {{#if tags}}
+            <div class="post-tags">
+                <h3>Tags:</h3>
+                <ul>
+                    {{#foreach tags}}
+                        <li class="post-tag"><a href="{{url}}">{{name}}</a></li>
+                    {{/foreach}}
+                </ul>
+            </div>
+        {{/if}}
+        
+        <!-- Related posts -->
+        {{> "related-posts"}}
+    </footer>
+    
+    <!-- Comments section -->
+    {{> "comments"}}
 </article> 
